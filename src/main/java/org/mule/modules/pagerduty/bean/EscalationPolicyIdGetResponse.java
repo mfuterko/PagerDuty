@@ -2,11 +2,21 @@ package org.mule.modules.pagerduty.bean;
 
 public class EscalationPolicyIdGetResponse extends StatusResponse {
 	
-	String id;
-	String name;
-	String num_loops;
-	EscalationRuleResponse[] escalation_rules;
-	
-	
+	private Escalation_policy escalation_policy;
 
+    public Escalation_policy getEscalation_policy ()
+    {
+        return escalation_policy;
+    }
+
+    public void setEscalation_policy (Escalation_policy escalation_policy)
+    {
+        this.escalation_policy = escalation_policy;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [escalation_policy = "+escalation_policy+"]";
+    }
 }

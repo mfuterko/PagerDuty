@@ -26,6 +26,8 @@ import org.mule.modules.pagerduty.bean.EscalationPoliciesGetResponse;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdGetResponse;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdPutRequest;
 import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyGetResponse;
+import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutRequest;
+import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdGetResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPostResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPutRequest;
@@ -159,7 +161,9 @@ public class PagerDutyConnector {
    public EscalationRuleByPolicyGetResponse getEsclationRuleByPolicy(String escalation_policy_id, String id){
 	   return getClient().getEsclationRuleByPolicy(escalation_policy_id, id);
    }
-   
+   public EscalationRuleByPolicyPutResponse updateEscalationRule(String escalationPolicyId, String escalationRuleId, EscalationRuleByPolicyPutRequest request){
+	   return getClient().updateEscalationRule(escalationPolicyId, escalationRuleId, request);
+   }
    @Processor
    public StatusResponse deleteEscalationRuleByPolicy(String escalation_policy_id, String id){
 	   return getClient().deleteEscalationRuleByPolicy(escalation_policy_id, id);

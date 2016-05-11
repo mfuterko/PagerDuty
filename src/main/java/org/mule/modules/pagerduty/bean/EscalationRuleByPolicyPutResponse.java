@@ -1,6 +1,6 @@
 package org.mule.modules.pagerduty.bean;
 
-public class EscalationRulesByIdPostResponse extends StatusResponse {
+public class EscalationRuleByPolicyPutResponse extends StatusResponse {
 	
 	private Escalation_rule escalation_rule;
 

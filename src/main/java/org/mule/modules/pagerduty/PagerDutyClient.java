@@ -27,6 +27,8 @@ import org.mule.modules.pagerduty.bean.EscalationPoliciesPostResponse;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdGetResponse;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdPutRequest;
 import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyGetResponse;
+import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutRequest;
+import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdGetResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPostResponse;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPutRequest;
@@ -36,6 +38,7 @@ import org.mule.modules.pagerduty.bean.IncidentByIdGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentCountResponse;
 import org.mule.modules.pagerduty.bean.IncidentLogEntriesGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentNotesGetResponse;
+import org.mule.modules.pagerduty.bean.IncidentNotesPostResponse;
 import org.mule.modules.pagerduty.bean.IncidentsGetResponse;
 import org.mule.modules.pagerduty.bean.ListEntriesOfScheduleGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesByIdGetResponse;
@@ -46,6 +49,8 @@ import org.mule.modules.pagerduty.bean.MaintenanceWindowPutResponse;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsGetResponse;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostResponse;
+import org.mule.modules.pagerduty.bean.Note;
+import org.mule.modules.pagerduty.bean.Notes;
 import org.mule.modules.pagerduty.bean.NotifcationRulePostResponse;
 import org.mule.modules.pagerduty.bean.NotificationRuleGetResponse;
 import org.mule.modules.pagerduty.bean.NotificationRulePostRequest;
@@ -174,15 +179,19 @@ public class PagerDutyClient {
 	  WebResource webResource = getApiResource().path("escalation_policies").path(id);
 	  return (StatusResponse) deleteData(webResource);
   }
+  /*
+   * this method is for retrieving the EscalationRules by escalationPolicyId
+   * 
+   */
 
-  public EscalationRulesByIdGetResponse getEscalationRulesById(String id){
-	  WebResource webResource = getApiResource().path("escalation_policies").path(id).path("escalation_rules");
+  public EscalationRulesByIdGetResponse getEscalationRulesById(String escalationPolicyId){
+	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules");
 	  return (EscalationRulesByIdGetResponse) getData(webResource, EscalationRulesByIdGetResponse.class);
   }
   
-  public EscalationRulesByIdPostResponse postEscalationRulesById(String id){
-	  WebResource webResource = getApiResource().path("escalation_policies").path(id).path("escalation_rules");
-	  return (EscalationRulesByIdPostResponse) postData(id,webResource, EscalationRulesByIdPostResponse.class);
+  public EscalationRulesByIdPostResponse postEscalationRulesById(String escalationPolicyId){
+	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules");
+	  return (EscalationRulesByIdPostResponse) postData(escalationPolicyId,webResource, EscalationRulesByIdPostResponse.class);
   }
   
   public EscalationRulesByIdPutResponse putEscalationRuesById(String escalationPolicyId,String escalationRuleId, EscalationRulesByIdPutRequest escalationRulesByIdPutRequest){
@@ -198,6 +207,11 @@ public class PagerDutyClient {
 	      queryParams.add("id", id);
 	    webResource = webResource.queryParams(queryParams);
 	    return (EscalationRuleByPolicyGetResponse) getData(webResource, EscalationRuleByPolicyGetResponse.class);
+  }
+  
+  public EscalationRuleByPolicyPutResponse updateEscalationRule(String escalationPolicyId, String escalationRuleId, EscalationRuleByPolicyPutRequest request){
+	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules").path(escalationRuleId);
+	  return (EscalationRuleByPolicyPutResponse) putData(request, webResource, EscalationRuleByPolicyPutResponse.class);
   }
   
   
@@ -303,10 +317,12 @@ public class PagerDutyClient {
 	  return (IncidentNotesGetResponse) getData(webResource, IncidentNotesGetResponse.class);
   }
   
-  public IncidentNotesGetResponse postIncidentsNotesById(Object notes, String registerId, String id){
-	  WebResource webResource = getApiResource().path("incidents").path(id).path("notes");
-	  return (IncidentNotesGetResponse) postData(id,webResource, IncidentNotesGetResponse.class);
+  public IncidentNotesPostResponse postIncidentsNotesById(String incidentId, Note notes, String requesterId){
+	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("notes");
+	  return (IncidentNotesPostResponse) postData(incidentId,webResource, IncidentNotesPostResponse.class);
   }
+  
+  
   
   public LogEntriesGetResponse getLogEntries( String timeZone, String since, String until,String isOverview,
 		  String include){
