@@ -39,7 +39,14 @@ import org.mule.modules.pagerduty.bean.IncidentCountResponse;
 import org.mule.modules.pagerduty.bean.IncidentLogEntriesGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentNotesGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentNotesPostResponse;
+import org.mule.modules.pagerduty.bean.IncidentsAcknowledgePutRequest;
 import org.mule.modules.pagerduty.bean.IncidentsGetResponse;
+import org.mule.modules.pagerduty.bean.IncidentsPutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsPutResponse;
+import org.mule.modules.pagerduty.bean.IncidentsReassignPutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsResolvePutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsResolvePutResponse;
+import org.mule.modules.pagerduty.bean.IncidentsSnoozePutRequest;
 import org.mule.modules.pagerduty.bean.ListEntriesOfScheduleGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesByIdGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesGetResponse;
@@ -58,6 +65,7 @@ import org.mule.modules.pagerduty.bean.NotificationRulePutRequest;
 import org.mule.modules.pagerduty.bean.NotificationRulePutResponse;
 import org.mule.modules.pagerduty.bean.NotificationRulesGetResponse;
 import org.mule.modules.pagerduty.bean.OnCallGetResponse;
+import org.mule.modules.pagerduty.bean.RegenerateServiceKeyPostResponse;
 import org.mule.modules.pagerduty.bean.ReportsAlertsPerTimeResponse;
 import org.mule.modules.pagerduty.bean.ReportsIncidentsPerTimeResponse;
 import org.mule.modules.pagerduty.bean.ScheduleByIdGetResponse;
@@ -310,6 +318,31 @@ public class PagerDutyClient {
 		}
 		webResource = webResource.queryParams(queryParams);
 	  return (IncidentCountResponse) getData(webResource, IncidentCountResponse.class);
+  }
+  
+  public IncidentsPutResponse putIncidents(IncidentsPutRequest request){
+	  WebResource webResource = getApiResource().path("incidents");
+	  return (IncidentsPutResponse) putData(request, webResource, IncidentsPutResponse.class);
+  }
+  
+  public StatusResponse resolveIncident(String incidentId, IncidentsResolvePutRequest request ){
+	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("resolve");
+	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
+  }
+  
+  public StatusResponse acknowledgeIncident(String incidentId, IncidentsAcknowledgePutRequest request ){
+	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("acknowledge");
+	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
+  }
+  
+  public StatusResponse reassignIncident(String incidentId, IncidentsReassignPutRequest request ){
+	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("reassign");
+	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
+  }
+  
+  public StatusResponse snoozeIncident(String incidentId, IncidentsSnoozePutRequest request ){
+	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("snooze");
+	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
   }
   
   public IncidentNotesGetResponse getIncidentsNotesById(String id){
@@ -644,9 +677,9 @@ public class PagerDutyClient {
 	  return (StatusResponse) putData(requesterId, webResource, StatusResponse.class);
   }
   
-  public StatusResponse regenerateServiceKey(String id){
+  public RegenerateServiceKeyPostResponse regenerateServiceKey(String id){
 	  WebResource webResource = getApiResource().path("services").path(id).path("regenerate_key");
-	  return (StatusResponse) postData(id, webResource, StatusResponse.class);
+	  return (RegenerateServiceKeyPostResponse) postData(id, webResource, RegenerateServiceKeyPostResponse.class);
   }
   
   public EmailFiltersPostResponse createEmailFilter(String serviceId, EmailFilterPostRequest request){

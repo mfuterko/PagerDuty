@@ -37,7 +37,14 @@ import org.mule.modules.pagerduty.bean.IncidentByIdGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentCountResponse;
 import org.mule.modules.pagerduty.bean.IncidentLogEntriesGetResponse;
 import org.mule.modules.pagerduty.bean.IncidentNotesGetResponse;
+import org.mule.modules.pagerduty.bean.IncidentNotesPostResponse;
+import org.mule.modules.pagerduty.bean.IncidentsAcknowledgePutRequest;
 import org.mule.modules.pagerduty.bean.IncidentsGetResponse;
+import org.mule.modules.pagerduty.bean.IncidentsPutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsPutResponse;
+import org.mule.modules.pagerduty.bean.IncidentsReassignPutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsResolvePutRequest;
+import org.mule.modules.pagerduty.bean.IncidentsSnoozePutRequest;
 import org.mule.modules.pagerduty.bean.ListEntriesOfScheduleGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesByIdGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesGetResponse;
@@ -47,6 +54,7 @@ import org.mule.modules.pagerduty.bean.MaintenanceWindowPutResponse;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsGetResponse;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostResponse;
+import org.mule.modules.pagerduty.bean.Note;
 import org.mule.modules.pagerduty.bean.NotifcationRulePostResponse;
 import org.mule.modules.pagerduty.bean.NotificationRuleGetResponse;
 import org.mule.modules.pagerduty.bean.NotificationRulePostRequest;
@@ -120,7 +128,8 @@ public class PagerDutyConnector {
     }
    
    @Processor
-   public EscalationPoliciesGetResponse getEscalationPolicies(@Optional String query,@Optional String teams, @Optional String include){
+   public EscalationPoliciesGetResponse getEscalationPolicies(@Optional String query,@Optional String teams,
+		   @Optional String include){
 	   return getClient().getEscalationPolicies(query, teams, include);
    }
    
@@ -152,7 +161,7 @@ public class PagerDutyConnector {
    }
    
    @Processor
-   public EscalationRulesByIdPutResponse putEscalationRuesById(String escalationPolicyId, String escalationRuleId, EscalationRulesByIdPutRequest escalationRulesByIdPutRequest){
+   public EscalationRulesByIdPutResponse putEscalationRuesById(String escalationPolicyId, String escalationRuleId,  @Default("#[payload]") EscalationRulesByIdPutRequest escalationRulesByIdPutRequest){
 	   return getClient().putEscalationRuesById(escalationPolicyId,escalationRuleId, escalationRulesByIdPutRequest);
    
    }
@@ -161,7 +170,7 @@ public class PagerDutyConnector {
    public EscalationRuleByPolicyGetResponse getEsclationRuleByPolicy(String escalation_policy_id, String id){
 	   return getClient().getEsclationRuleByPolicy(escalation_policy_id, id);
    }
-   public EscalationRuleByPolicyPutResponse updateEscalationRule(String escalationPolicyId, String escalationRuleId, EscalationRuleByPolicyPutRequest request){
+   public EscalationRuleByPolicyPutResponse updateEscalationRule(String escalationPolicyId, String escalationRuleId,  @Default("#[payload]") EscalationRuleByPolicyPutRequest request){
 	   return getClient().updateEscalationRule(escalationPolicyId, escalationRuleId, request);
    }
    @Processor
@@ -188,17 +197,39 @@ public class PagerDutyConnector {
    
    @Processor
    public IncidentCountResponse getIncidentsCount(@Optional String since, @Optional String until, @Optional String dateRange, @Optional String status, @Optional String incidentKey, @Optional String service, @Optional String teams, @Optional String assignedToUser){
-	  return getClient().getIncidentsCount(since, until, dateRange, status, incidentKey, service, teams, assignedToUser);
+	   return getClient().getIncidentsCount(since, until, dateRange, status, incidentKey, service, teams, assignedToUser);
    }
    
+   @Processor
+   public IncidentsPutResponse putIncidents(IncidentsPutRequest request){
+	   return getClient().putIncidents(request);
+   }
+   @Processor
+   public StatusResponse resolveIncident(String incidentId, IncidentsResolvePutRequest request ){
+	   return getClient().resolveIncident(incidentId, request);
+   }
+   @Processor
+   public StatusResponse acknowledgeIncident(String incidentId, IncidentsAcknowledgePutRequest request ){
+	   return getClient().acknowledgeIncident(incidentId, request);
+   }
+   @Processor
+   public StatusResponse reassignIncident(String incidentId, IncidentsReassignPutRequest request ){
+	  return getClient().reassignIncident(incidentId, request);
+   }
+   @Processor
+   public StatusResponse snoozeIncident(String incidentId, IncidentsSnoozePutRequest request ){
+	   return getClient().snoozeIncident(incidentId, request);
+   }
+	  
+	  
    @Processor
    public IncidentNotesGetResponse getIncidentsNotesById(String id){
 	   return getClient().getIncidentsNotesById(id);
    }
    
    @Processor
-   public IncidentNotesGetResponse postIncidentsNotesById(Object notes, String registerId, String id){
-	   return getClient().postIncidentsNotesById(notes, registerId, id);
+   public IncidentNotesPostResponse postIncidentsNotesById( String id, Note notes, String registerId){
+	   return getClient().postIncidentsNotesById(id, notes, registerId);
    }
    @Processor
    public LogEntriesGetResponse getLogEntries(@Optional String timeZone,@Optional String since,@Optional String until,@Optional String isOverview,@Optional String include){
@@ -234,7 +265,7 @@ public class PagerDutyConnector {
    }
    
    @Processor
-   public MaintenanceWindowPutResponse putMaintenanceWindowById(String id, MaintenanceWindowPutRequest request){
+   public MaintenanceWindowPutResponse putMaintenanceWindowById(String id, @Default("#[payload]") MaintenanceWindowPutRequest request){
 	   return getClient().putMaintenanceWindowById(id, request);
    }
    @Processor
@@ -262,7 +293,7 @@ public class PagerDutyConnector {
 	   return getClient().postSchedule(request);
    }
    @Processor
-   public SchedulesPutResponse putSchedule(String id, SchedulesPutRequest request){
+   public SchedulesPutResponse putSchedule(String id, @Default("#[payload]") SchedulesPutRequest request){
 	   return getClient().putSchedule(id, request);
    }
    @Processor
@@ -300,7 +331,7 @@ public class PagerDutyConnector {
 	   return getClient().postService(request);
    }
    @Processor
-   public ServicePutResponse putService(String id, ServicePutRequest request){
+   public ServicePutResponse putService(String id, @Default("#[payload]") ServicePutRequest request){
 	   return getClient().putService(id, request);
    }
    @Processor
@@ -398,7 +429,7 @@ public class PagerDutyConnector {
    }
    
    @Processor
-   public NotificationRulePutResponse updateNotificationRule(String userId, String notificationRuleId, NotificationRulePutRequest request){
+   public NotificationRulePutResponse updateNotificationRule(String userId, String notificationRuleId, @Default("#[payload]") NotificationRulePutRequest request){
 	   return getClient().updateNotificationRule(userId, notificationRuleId, request);
    }
    

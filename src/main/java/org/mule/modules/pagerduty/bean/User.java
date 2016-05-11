@@ -1,130 +1,35 @@
 package org.mule.modules.pagerduty.bean;
 
 public class User {
-	private String id;
+	
+	private String member_order;
 
-    private String time_zone;
+    private User user;
 
-    private String invitation_sent;
-
-    private String avatar_url;
-
-    private String color;
-
-    private String email;
-
-    private String name;
-
-    private String role;
-
-    private String user_url;
-
-    private String marketing_opt_out;
-
-    public String getId ()
+    public String getMember_order ()
     {
-        return id;
+        return member_order;
     }
 
-    public void setId (String id)
+    public void setMember_order (String member_order)
     {
-        this.id = id;
+        this.member_order = member_order;
     }
 
-    public String getTime_zone ()
+    public User getUser ()
     {
-        return time_zone;
+        return user;
     }
 
-    public void setTime_zone (String time_zone)
+    public void setUser (User user)
     {
-        this.time_zone = time_zone;
-    }
-
-    public String getInvitation_sent ()
-    {
-        return invitation_sent;
-    }
-
-    public void setInvitation_sent (String invitation_sent)
-    {
-        this.invitation_sent = invitation_sent;
-    }
-
-    public String getAvatar_url ()
-    {
-        return avatar_url;
-    }
-
-    public void setAvatar_url (String avatar_url)
-    {
-        this.avatar_url = avatar_url;
-    }
-
-    public String getColor ()
-    {
-        return color;
-    }
-
-    public void setColor (String color)
-    {
-        this.color = color;
-    }
-
-    public String getEmail ()
-    {
-        return email;
-    }
-
-    public void setEmail (String email)
-    {
-        this.email = email;
-    }
-
-    public String getName ()
-    {
-        return name;
-    }
-
-    public void setName (String name)
-    {
-        this.name = name;
-    }
-
-    public String getRole ()
-    {
-        return role;
-    }
-
-    public void setRole (String role)
-    {
-        this.role = role;
-    }
-
-    public String getUser_url ()
-    {
-        return user_url;
-    }
-
-    public void setUser_url (String user_url)
-    {
-        this.user_url = user_url;
-    }
-
-    public String getMarketing_opt_out ()
-    {
-        return marketing_opt_out;
-    }
-
-    public void setMarketing_opt_out (String marketing_opt_out)
-    {
-        this.marketing_opt_out = marketing_opt_out;
+        this.user = user;
     }
 
     @Override
     public String toString()
     {
-        return "ClassPojo [id = "+id+", time_zone = "+time_zone+", invitation_sent = "+invitation_sent+", avatar_url = "+avatar_url+", color = "+color+", email = "+email+", name = "+name+", role = "+role+", user_url = "+user_url+", marketing_opt_out = "+marketing_opt_out+"]";
+        return "ClassPojo [member_order = "+member_order+", user = "+user+"]";
     }
 
 }

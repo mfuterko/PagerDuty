@@ -5,13 +5,22 @@ import java.util.TimeZone;
 
 public class ScheduleByIdGetResponse extends StatusResponse {
 	
-	ScheduleLayer[] scheduleLayers;
-	String name;
-	Object finalSchedule;
-	Object overridesSchedule;
-	TimeZone timeZone;
-	EscalationPolicy[] escalationPoliceis;
-	Date today;
-	
+	private Schedule schedule;
+
+    public Schedule getSchedule ()
+    {
+        return schedule;
+    }
+
+    public void setSchedule (Schedule schedule)
+    {
+        this.schedule = schedule;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [schedule = "+schedule+"]";
+    }
 
 }

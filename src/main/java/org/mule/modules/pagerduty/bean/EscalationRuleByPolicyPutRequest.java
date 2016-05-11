@@ -4,6 +4,7 @@ public class EscalationRuleByPolicyPutRequest {
 	
 	int escalation_delay_in_minutes;
 	Rule_object rule_object;
+	
 	public int getEscalation_delay_in_minutes() {
 		return escalation_delay_in_minutes;
 	}
