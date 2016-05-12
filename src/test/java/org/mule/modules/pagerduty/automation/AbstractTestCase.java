@@ -35,5 +35,69 @@ public abstract class AbstractTestCase {
 		connector = dispatcher.createMockup();
 		
 	}
-
+	
+	public String getEscalationId()
+	{
+		return null;
+	}
+	
+	public String getTeamId()
+	{
+		return null;
+	}
+	
+	public String getUserId()
+	{
+		return null;
+	}
+	
+	public String getnotificationRuleId()
+	{
+		return null;
+	}
+	public String getEscalationPolicyId()
+	{
+		return null;
+	}
+	public String getQuery()
+	{
+		return null;
+	}
+	
+	public String getInclude()
+	{
+		return null;
+	}
+	
+	public String getServiceId()
+	{
+		return null;
+	}
+	
+	public String getemailFilterId()
+	{
+		return null;
+	}
+	
+	public String getSince()
+	{
+		return null;
+	}
+	public String getUntil()
+	{
+		return null;
+	}
+	public String getTimeZone()
+	{
+		return null;
+	}
+	
+	public String getOverflow()
+	{
+		return null;
+	}
+	public String getContactMethodId()
+	{
+		return null;
+	}
 }

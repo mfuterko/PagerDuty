@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.mule.tooling.ui.extension.pager-duty-connector.3.5.0" label="PagerDuty Connector (Mule 3.5.0+)" provider-name="Mulesoft, Inc." version="1.0.0.201605121438"><license>About MuleSoft Certified Connectors&#13;
+&#13;
+&#13;
+MuleSoft Certified Connectors are developed by MuleSoft’s partners and developer community. These connectors have been reviewed and certified by MuleSoft. To purchase the Cisco Spark Connector, if required, or to receive assistance or support for it, please contact Cisco directly at devsupport@ciscospark.com. MuleSoft disclaims any support obligation for MuleSoft Certified Connectors.&#13;
+&#13;
+By installing this connector, you consent to MuleSoft sharing your contact information with the developer of this connector so that you can receive more information about it directly from the developer.&#13;
+&#13;
+About Cisco License terms&#13;
+Copyright © 1992-2016 Cisco, Inc. This software is protected under international&#13;
+copyright law. All use of this software is subject to Cisco's Master&#13;
+Subscription Agreement (or other Terms of Service) separately entered&#13;
+into between you and Cisco. If such an agreement is not in&#13;
+place, you may not use the software.&#13;
+</license><plugin download-size="0" id="org.mule.tooling.ui.contribution.pager-duty.3.5.0" install-size="0" unpack="true" version="1.0.0.201605121438"/></feature>

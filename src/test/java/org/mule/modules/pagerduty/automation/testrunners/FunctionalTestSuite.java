@@ -1,4 +1,4 @@
-package org.mule.modules.pagerduty.automation.testrunners;
+package src.test.java.org.mule.modules.pagerduty.automation.testrunners;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -12,29 +12,29 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.tools.devkit.ctf.junit.RegressionTests;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
-@RunWith(Categories.class)
-@IncludeCategory(RegressionTests.class)
+//@RunWith(Categories.class)
+//@IncludeCategory(RegressionTests.class)
+//
+//@SuiteClasses({
+//	GreetTestCases.class
+//	,AddEntityTestCases.class
+//	
+//})
 
-@SuiteClasses({
-	GreetTestCases.class
-	,AddEntityTestCases.class
-	
-})
-
-public class RegressionTestSuite {
+public class FunctionalTestSuite {
 	
 	@BeforeClass
-	public static void initialiseSuite(){
-		
-		ConnectorTestContext.initialize(PagerDutyConnector.class);
+	public static void initialiseSuite() {
+
+		ConnectorTestContext.initialize(SparkConnector.class);
 
 	}
-	
+
 	@AfterClass
-    public static void shutdownSuite() {
+	public static void shutdownSuite() {
 
-        ConnectorTestContext.shutDown();
+		ConnectorTestContext.shutDown();
 
-    }
+	}
 	
 }

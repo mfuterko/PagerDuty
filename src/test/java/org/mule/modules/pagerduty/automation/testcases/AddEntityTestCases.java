@@ -13,7 +13,7 @@ public class AddEntityTestCases extends AbstractTestCase {
     
 
     @Test
-    @Category({RegressionTests.class})
+    @Category({FunctionalTestSuite.class})
     public void testFlow() throws Exception {
         assertNotNull(getConnector().addEntity("ENTITY_TYPE_1", new HashMap<String, Object>()));
     }

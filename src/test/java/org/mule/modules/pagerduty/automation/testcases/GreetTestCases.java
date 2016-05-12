@@ -10,7 +10,7 @@ import org.junit.experimental.categories.Category;
 public class GreetTestCases extends AbstractTestCase {
 
     @Test
-    @Category({RegressionTests.class})
+    @Category({FunctionalTestSuite.class})
     public void testFlow() throws Exception {
     	
     //	assertEquals(getConnector().greet("Foo"), "Hello Foo. How are you?");
