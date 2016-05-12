@@ -1,4 +1,13 @@
-package src.test.java.org.mule.modules.pagerduty.automation.testcases;
+package org.mule.modules.pagerduty.automation.testcases;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.automation.AbstractTestCase;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
+import org.mule.modules.pagerduty.bean.StatusResponse;
 
 public class DeleteNotificationRuleTestCases extends AbstractTestCase{
 	
@@ -13,7 +22,7 @@ public class DeleteNotificationRuleTestCases extends AbstractTestCase{
 		String userId = getUserId();
 		String notificationRuleId = getnotificationRuleId();
 		
-		StatusResponse statusResponse = getConnector().DeleteNotificationRule(userId,notificationRuleId);
+		StatusResponse statusResponse = getConnector().deleteNotificationRule(userId,notificationRuleId);
 		assertNotNull(statusResponse);
 	    assertEquals("200", statusResponse.getStatusCode());
 	}

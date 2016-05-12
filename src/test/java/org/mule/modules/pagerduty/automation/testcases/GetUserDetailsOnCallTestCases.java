@@ -1,10 +1,13 @@
-package test.java.org.mule.modules.pagerduty.automation.testcases;
+package org.mule.modules.pagerduty.automation.testcases;
 
-import src.test.java.org.mule.modules.pagerduty.automation.testcases.AbstractTestCase;
-import src.test.java.org.mule.modules.pagerduty.automation.testcases.Category;
-import src.test.java.org.mule.modules.pagerduty.automation.testcases.FunctionalTestSuite;
-import src.test.java.org.mule.modules.pagerduty.automation.testcases.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.automation.AbstractTestCase;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
+import org.mule.modules.pagerduty.bean.UserDetailsOnCallGetResponse;
 public class GetUserDetailsOnCallTestCases extends AbstractTestCase {
 	
 	public GetUserDetailsOnCallTestCases()
@@ -17,7 +20,7 @@ public class GetUserDetailsOnCallTestCases extends AbstractTestCase {
 	{
 		String id = getId();
 		String include = getInclude();
-		UserDetailsOnCallGetResponse userDetailsOnCallGetResponse = getConector().GetUserDetailsOnCall(id,include);
+		UserDetailsOnCallGetResponse userDetailsOnCallGetResponse = getConnector().getUserDetailsOnCall(id,include);
 		assertNotNull(userDetailsOnCallGetResponse);
 	    assertEquals("200", userDetailsOnCallGetResponse.getStatusCode());
 	}

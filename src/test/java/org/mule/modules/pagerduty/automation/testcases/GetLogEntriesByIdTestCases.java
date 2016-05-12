@@ -19,6 +19,9 @@ public class GetLogEntriesByIdTestCases extends AbstractTestCase{
     @Category({FunctionalTestSuite.class})
     public void testGetLogEntriesById() throws Exception 
     {
+    	String id = getId();
+    	String timeZone = getTimeZone();
+    	String include = getInclude();
     	LogEntriesByIdGetResponse logEntriesByIdGetResponse = getConnector().getLogEntriesById(id, timeZone, include);
     	assertNotNull(logEntriesByIdGetResponse);
 	    assertEquals("200", logEntriesByIdGetResponse.getStatusCode() );

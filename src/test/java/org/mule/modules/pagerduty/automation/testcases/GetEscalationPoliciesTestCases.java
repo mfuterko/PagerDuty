@@ -1,15 +1,13 @@
 package org.mule.modules.pagerduty.automation.testcases;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.HashMap;
-import org.mule.modules.pagerduty;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.AbstractTestCase;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationPoliciesGetResponse;
-import org.mule.tools.devkit.ctf.junit.RegressionTests;
 
 public class GetEscalationPoliciesTestCases extends AbstractTestCase{
 	

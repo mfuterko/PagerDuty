@@ -1,4 +1,13 @@
-package src.test.java.org.mule.modules.pagerduty.automation.testcases;
+package org.mule.modules.pagerduty.automation.testcases;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.automation.AbstractTestCase;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
+import org.mule.modules.pagerduty.bean.ContactMethodDetailsGetResponse;
 
 public class GetContactMethodDetailsTestCases extends AbstractTestCase{
 	
@@ -13,7 +22,7 @@ public class GetContactMethodDetailsTestCases extends AbstractTestCase{
 		String userId = getUserId();
 		String contactMethodId = getContactMethodId();
 		
-		ContactMethodDetailsGetResponse contactMethodDetailsGetResponse = getConnector().getContactMethodDetails(userID,contactMethodId);
+		ContactMethodDetailsGetResponse contactMethodDetailsGetResponse = getConnector().getContactMethodDetails(userId,contactMethodId);
 		assertNotNull(contactMethodDetailsGetResponse);
 	    assertEquals("200", contactMethodDetailsGetResponse.getStatusCode());
 	}

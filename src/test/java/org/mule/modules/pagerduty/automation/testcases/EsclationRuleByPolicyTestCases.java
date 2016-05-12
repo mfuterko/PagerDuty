@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.modules.pagerduty.automation.AbstractTestCase;
-import org.mule.tools.devkit.ctf.junit.RegressionTests;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 
 public class EsclationRuleByPolicyTestCases extends AbstractTestCase {
 	

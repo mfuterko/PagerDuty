@@ -19,6 +19,9 @@ public class GetAlertsPerTimeTestCases extends AbstractTestCase{
     @Category({FunctionalTestSuite.class})
     public void testGetAlertsPerTime() throws Exception 
     {
+    	String since = getSince();
+    	String until = getUntil();
+    	String rollup = getRollup();
     	ReportsAlertsPerTimeResponse reportsAlertsPerTimeResponse = getConnector().getAlertsPerTime(since, until, rollup);
     	assertNotNull(reportsAlertsPerTimeResponse);
 	    assertEquals("200", reportsAlertsPerTimeResponse.getStatusCode() );

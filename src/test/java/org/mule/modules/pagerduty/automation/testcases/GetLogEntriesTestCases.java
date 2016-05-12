@@ -18,7 +18,11 @@ public class GetLogEntriesTestCases extends AbstractTestCase{
     @Category({FunctionalTestSuite.class})
     public void testGetLogEntries() throws Exception 
     {
-    	
+    	String timeZone =  getTimeZone();
+    	String since = getSince();
+    	String until =  getUntil();
+    	String isOverview = getOverview();
+    	String include = getInclude();
     	LogEntriesGetResponse logEntriesGetResponse = getConnector().getLogEntries(timeZone, since, until, isOverview, include);
     	assertNotNull(logEntriesGetResponse);
 	    assertEquals("200", logEntriesGetResponse.getStatusCode() );

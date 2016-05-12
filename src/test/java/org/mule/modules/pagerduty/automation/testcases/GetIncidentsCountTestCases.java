@@ -19,6 +19,14 @@ public class GetIncidentsCountTestCases extends AbstractTestCase{
     @Category({FunctionalTestSuite.class})
     public void testGetIncidentsCount() throws Exception 
     {
+    	String since = getSince();
+    	String until = getUntil();
+    	String dateRange = getDateRange();
+    	String status = getStatus();
+    	String incidentKey = getIncidentKey();
+    	String service = getService();
+    	String teams = getTeams();
+    	String assignedToUser = getAssignedToUser();
     	IncidentCountResponse incidentCountResponse = getConnector().getIncidentsCount(since, until, dateRange, status, incidentKey, service, teams, assignedToUser);
         assertNotNull(incidentCountResponse);
 	    assertEquals("200", incidentCountResponse.getStatusCode());

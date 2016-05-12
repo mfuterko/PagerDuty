@@ -1,11 +1,9 @@
 package org.mule.modules.pagerduty.automation.testcases;
 
-import static org.junit.Assert.*;
-
-import org.mule.modules.pagerduty.automation.AbstractTestCase;
-import org.mule.tools.devkit.ctf.junit.RegressionTests;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.automation.AbstractTestCase;
+import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 
 public class GreetTestCases extends AbstractTestCase {
 

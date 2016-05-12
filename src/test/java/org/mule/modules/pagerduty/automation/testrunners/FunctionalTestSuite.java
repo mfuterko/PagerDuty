@@ -1,4 +1,4 @@
-package src.test.java.org.mule.modules.pagerduty.automation.testrunners;
+package org.mule.modules.pagerduty.automation.testrunners;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -26,7 +26,7 @@ public class FunctionalTestSuite {
 	@BeforeClass
 	public static void initialiseSuite() {
 
-		ConnectorTestContext.initialize(SparkConnector.class);
+		ConnectorTestContext.initialize(PagerDutyConnector.class);
 
 	}
 
