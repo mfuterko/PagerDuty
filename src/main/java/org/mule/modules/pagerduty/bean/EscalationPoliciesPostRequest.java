@@ -1,12 +1,9 @@
-/**
- * Copyright � 1992-2016 Cisco, Inc.
- */
 package org.mule.modules.pagerduty.bean;
 
 public class EscalationPoliciesPostRequest {
 	
 	private String name;
-	private boolean repeat_enabled;
+	private Boolean repeat_enabled;
 	private Integer num_loops;
 	private String[] escalation_rules;
 	
@@ -16,10 +13,10 @@ public class EscalationPoliciesPostRequest {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isRepeat_enabled() {
+	public Boolean isRepeat_enabled() {
 		return repeat_enabled;
 	}
-	public void setRepeat_enabled(boolean repeat_enabled) {
+	public void setRepeat_enabled(Boolean repeat_enabled) {
 		this.repeat_enabled = repeat_enabled;
 	}
 	public Integer getNum_loops() {

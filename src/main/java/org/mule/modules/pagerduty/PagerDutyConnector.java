@@ -1,6 +1,3 @@
-/**
- * Copyright � 1992-2016 Cisco, Inc.
- */
 package org.mule.modules.pagerduty;
 
 import java.util.Map;
@@ -101,7 +98,6 @@ import org.mule.modules.pagerduty.bean.UsersListByScheduleGetResponse;
 import org.mule.modules.pagerduty.bean.UsersOnCallGetResponse;
 import org.mule.modules.pagerduty.config.ConnectorConfig;
 
-import com.sun.jersey.api.client.WebResource;
 
 /**
  * This is Cisco Spark Connector Class

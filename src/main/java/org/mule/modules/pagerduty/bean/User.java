@@ -14,7 +14,6 @@ public class User {
         this.member_order = member_order;
     }
 
-   
     @Override
     public String toString()
     {

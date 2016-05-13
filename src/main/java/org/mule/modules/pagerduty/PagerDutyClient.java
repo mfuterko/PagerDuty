@@ -1,6 +1,4 @@
-/**
- * Copyright � 1992-2016 Cisco, Inc.
- */
+
 package org.mule.modules.pagerduty;
 
 import java.lang.reflect.Constructor;
@@ -45,7 +43,6 @@ import org.mule.modules.pagerduty.bean.IncidentsPutRequest;
 import org.mule.modules.pagerduty.bean.IncidentsPutResponse;
 import org.mule.modules.pagerduty.bean.IncidentsReassignPutRequest;
 import org.mule.modules.pagerduty.bean.IncidentsResolvePutRequest;
-import org.mule.modules.pagerduty.bean.IncidentsResolvePutResponse;
 import org.mule.modules.pagerduty.bean.IncidentsSnoozePutRequest;
 import org.mule.modules.pagerduty.bean.ListEntriesOfScheduleGetResponse;
 import org.mule.modules.pagerduty.bean.LogEntriesByIdGetResponse;
@@ -57,7 +54,6 @@ import org.mule.modules.pagerduty.bean.MaintenanceWindowsGetResponse;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostResponse;
 import org.mule.modules.pagerduty.bean.Note;
-import org.mule.modules.pagerduty.bean.Notes;
 import org.mule.modules.pagerduty.bean.NotifcationRulePostResponse;
 import org.mule.modules.pagerduty.bean.NotificationRuleGetResponse;
 import org.mule.modules.pagerduty.bean.NotificationRulePostRequest;

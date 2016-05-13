@@ -1,6 +1,3 @@
-/**
- * Copyright � 1992-2016 Cisco, Inc.
- */
 package org.mule.modules.pagerduty.bean;
 
 public class EmailFilterPostRequest {
@@ -11,6 +8,7 @@ public class EmailFilterPostRequest {
 	String bodyRegex;
 	String fromEmailMode;
 	String fromEmailRegex;
+	
 	public String getSubjectMode() {
 		return subjectMode;
 	}
