@@ -14,18 +14,18 @@ import org.mule.api.annotations.rest.RestHeaderParam;
 public class ConnectorConfig {
 
   @Configurable
-  @Optional
-  @Default("https://api.ciscospark.com/v1")
-  private String url = "https://api.ciscospark.com/v1";
+	@Optional
+	@Default("https://eidiko.pagerduty.com/api/v1")
+	private String url = "https://eidiko.pagerduty.com/api/v1";
 
   @Configurable
-  @Optional
-  @RestHeaderParam("Authorization")
-  private String authorization = "Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk";
+	@Optional
+	@RestHeaderParam("Authorization")
+	private String authorization = "Token token=R75KMmhVMdJy3zyi12tV";
 
   public String getUrl() {
-    return url;
-  }
+		return url;
+	}
 
   public void setUrl(String url) {
     this.url = url;
