@@ -1,9 +1,11 @@
 package org.mule.modules.pagerduty.bean;
 
+import org.mule.api.annotations.param.RefOnly;
+
 public class User {
 	
 	private String member_order;
-
+	@RefOnly
     private User user;
 
     public String getMember_order ()
