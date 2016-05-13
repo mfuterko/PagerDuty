@@ -1,3 +1,6 @@
+/**
+ * Copyright � 1992-2016 Cisco, Inc.
+ */
 package org.mule.modules.pagerduty;
 
 import java.util.Map;
@@ -122,84 +125,70 @@ public class PagerDutyConnector {
     public void init() {
       setClient(new PagerDutyClient(this));
     }
+  
 
-
-  /**
-   * This method gets the Alerts using sinceDate , untilDate ,filterType, timeZone
-   * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-memberships}
-   * 
-   * @param sinceDate , The since Date.<BR>
-   * @param untilDate , The until Daet.<BR>
-   * @param filterType , The Person Email.<BR>
-   * @param timeZone , The time zone.<BR>
-   * @return AlertsResponse object
-   */
-   @Processor
+/** gets the alerts
+ * @param sinceDate
+ * @param untilDate
+ * @param filterType
+ * @param time_zone
+ * @return
+ */
+@Processor
     public AlertsResponse getAlerts(String sinceDate,
     	    String untilDate,  @Optional String filterType,  @Optional String time_zone ) {
     	 return getClient().getAlerts(sinceDate, untilDate, filterType, time_zone);
     }
    
-   /**
-    * This method gets the EscalationPolicies using query, teams, include
-    * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-memberships}
-    * 
-    * @param query , The since query.<BR>
-    * @param teams , The until teams.<BR>
-    * @param include , The Person include.<BR>
-    * @return EscalationPoliciesGetResponse object
-    */
-   @Processor
+
+/**gets escalation policies
+ * @param query
+ * @param teams
+ * @param include
+ * @return
+ */
+@Processor
    public EscalationPoliciesGetResponse getEscalationPolicies(@Optional String query,@Optional String teams,
 		   @Optional String include){
 	   return getClient().getEscalationPolicies(query, teams, include);
    }
    
-   /**
-    * This method gets the EscalationPolicies using ID of the escalationpolicy
-    * {@sample.xml ../../../doc/cisco-spark-connector.xml.sample CiscoSpark:get-memberships}
-    * 
-    * @param id, The ID.<BR>
-    * @return EscalationPolicyIdGetResponse object
-    */
-   @Processor
+
+/**gets escalaltion policy by id
+ * @param id
+ * @return
+ */
+@Processor
    public EscalationPolicyIdGetResponse getEscalationPolicyById(@Optional String id){
 	   return getClient().getEscalationPolicyById(id);
    }
-   
+
    /**
-    * This method updates the EscalationPolicy using ID and the EscalationPolicyIdPutRequest of the escalationpolicy
-    * 
-    * 
-    * @param id, The ID.<BR>
-    * @return EscaltionPolicyIdPutResponse object
-    */
-   @Processor
+ * @param id
+ * @param escalationPolicyIdPutRequest
+ * @return
+ */
+@Processor
    public EscaltionPolicyIdPutResponse updateEscaltionPolicyById(String id,
 			  @Default("#[payload]") EscalationPolicyIdPutRequest escalationPolicyIdPutRequest){
 	   return getClient().updateEscaltionPolicyById(id, escalationPolicyIdPutRequest);
    }
-   
+ 
    /**
-    * This method deletes the EscalationPolicy of the provided ID
-    * 
-    * 
-    * @param id, The ID.<BR>
-    * @return StatusResponse object
-    */
-   @Processor
+ * @param id
+ * @return
+ */
+@Processor
    public StatusResponse deleteEscalationPolicyById(String id){
 	   return getClient().deleteEscalationPolicyById(id);
    }
    
+ 
    /**
-    * This method deletes the EscalationPolicy of the provided ID
-    * 
-    * 
-    * @param id, The ID.<BR>
-    * @return StatusResponse object
-    */
-   @Processor
+ * @param id
+ * @return
+ */
+@Processor
    public EscalationRulesByIdGetResponse getEscalationRulesById(String id){
 	   return getClient().getEscalationRulesById(id);
    }
@@ -260,6 +249,7 @@ public class PagerDutyConnector {
    public StatusResponse resolveIncident(String incidentId, @Default("#[payload]") IncidentsResolvePutRequest request ){
 	   return getClient().resolveIncident(incidentId, request);
    }
+   
    @Processor
    public StatusResponse acknowledgeIncident(String incidentId, @Default("#[payload]") IncidentsAcknowledgePutRequest request ){
 	   return getClient().acknowledgeIncident(incidentId, request);
@@ -283,9 +273,11 @@ public class PagerDutyConnector {
    public IncidentNotesPostResponse postIncidentsNotesById( String id, Note notes, String registerId){
 	   return getClient().postIncidentsNotesById(id, notes, registerId);
    }
+  
    @Processor
-   public LogEntriesGetResponse getLogEntries(@Optional String timeZone, @Optional String since, @Optional String until, @Optional String isOverview,
-		   @Optional String include){
+   public LogEntriesGetResponse getLogEntries(
+		   @Optional String timeZone, @Optional String since,
+		   @Optional String until, @Optional String isOverview, @Optional String include){
 	   return getClient().getLogEntries(timeZone, since, until, isOverview, include);
    }
    @Processor
@@ -293,6 +285,8 @@ public class PagerDutyConnector {
 		   @Optional String isOverview, @Optional String include){
 	   return getClient().getUserLogEntries(id, timeZone, since, until, isOverview, include);
    }
+
+
    @Processor
    public IncidentLogEntriesGetResponse getIncidentLogEntries(String incidentId, @Optional String timeZone, @Optional String since, 
 		   @Optional String until, @Optional String isOverview, @Optional String include){
