@@ -1,13 +1,9 @@
 package org.mule.modules.pagerduty.bean;
 
-import org.mule.api.annotations.param.RefOnly;
-
 public class User {
 	
 	private String member_order;
-	@RefOnly
-    private User user;
-
+	
     public String getMember_order ()
     {
         return member_order;
@@ -18,20 +14,11 @@ public class User {
         this.member_order = member_order;
     }
 
-    public User getUser ()
-    {
-        return user;
-    }
-
-    public void setUser (User user)
-    {
-        this.user = user;
-    }
-
+   
     @Override
     public String toString()
     {
-        return "ClassPojo [member_order = "+member_order+", user = "+user+"]";
+        return "ClassPojo [member_order = "+member_order+"]";
     }
 
 }
