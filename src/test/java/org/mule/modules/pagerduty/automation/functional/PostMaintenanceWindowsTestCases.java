@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostResponse;
@@ -16,7 +17,7 @@ public class PostMaintenanceWindowsTestCases extends PagerDutyAbstractTestCases 
 	
 	public PostMaintenanceWindowsTestCases()
 	{
-		super();
+		super(PagerDutyConnector.class);
 	}
     @Test
     @Category({FunctionalTestSuite.class})

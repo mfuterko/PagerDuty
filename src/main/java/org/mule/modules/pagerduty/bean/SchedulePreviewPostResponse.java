@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SchedulePreviewPostResponse extends StatusResponse {
 	
 	 private Schedule schedule;

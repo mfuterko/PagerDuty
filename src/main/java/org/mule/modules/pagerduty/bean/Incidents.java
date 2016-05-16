@@ -3,7 +3,16 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Incidents {
+	
+	private String id;
+	
+	private Escalation_policy escalation_policy;
+	
+	private String trigger_type;
 	
 	private Assigned_to[] assigned_to;
 
@@ -178,5 +187,29 @@ public class Incidents {
     {
         return "ClassPojo [assigned_to = "+assigned_to+", html_url = "+html_url+", assigned_to_user = "+assigned_to_user+", last_status_change_on = "+last_status_change_on+", status = "+status+", created_on = "+created_on+", last_status_change_by = "+last_status_change_by+", service = "+service+", incident_key = "+incident_key+", trigger_summary_data = "+trigger_summary_data+", pending_actions = "+pending_actions+", incident_number = "+incident_number+", trigger_details_html_url = "+trigger_details_html_url+", urgency = "+urgency+"]";
     }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Escalation_policy getEscalation_policy() {
+		return escalation_policy;
+	}
+
+	public void setEscalation_policy(Escalation_policy escalation_policy) {
+		this.escalation_policy = escalation_policy;
+	}
+
+	public String getTrigger_type() {
+		return trigger_type;
+	}
+
+	public void setTrigger_type(String trigger_type) {
+		this.trigger_type = trigger_type;
+	}
 
 }

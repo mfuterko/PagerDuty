@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmailFiltersPostResponse extends StatusResponse {
 	
 	private Email_filter email_filter;

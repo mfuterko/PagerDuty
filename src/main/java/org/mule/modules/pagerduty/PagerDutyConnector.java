@@ -299,10 +299,10 @@ public class PagerDutyConnector {
     * @return the incidents
     */
    @Processor
-   public IncidentsGetResponse getIncidents(@Optional String since,@Optional String untill,@Optional String dateRange,@Optional String fields,
-		   @Optional String status, @Optional String incidentKey,@Optional String service,@Optional String teams,@Optional String assignedToUser, 
-		   @Optional  String urgency,@Optional String timeZone, @Optional String sortBy){
-	   return getClient().getIncidents(since, untill, dateRange, fields, status, incidentKey, service, teams, assignedToUser, urgency, timeZone, sortBy);
+   public IncidentsGetResponse getIncidents(@Optional String since,@Optional String untill,@Optional String date_range,@Optional String fields,
+		   @Optional String status, @Optional String incident_key ,@Optional String service,@Optional String teams,@Optional String assigned_to_user, 
+		   @Optional  String urgency,@Optional String time_zone, @Optional String sort_by){
+	   return getClient().getIncidents(since, untill, date_range, fields, status, incident_key , service, teams, assigned_to_user, urgency, time_zone, sort_by);
    }
    
    /**

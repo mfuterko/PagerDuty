@@ -3,16 +3,30 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamsGetResponse extends StatusResponse {
 	private String total;
 
     private String limit;
 
     private Teams[] teams;
-
+    
     private String offset;
 
-    public String getTotal ()
+    private String query;
+    
+    
+    public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
+	}
+
+	public String getTotal ()
     {
         return total;
     }

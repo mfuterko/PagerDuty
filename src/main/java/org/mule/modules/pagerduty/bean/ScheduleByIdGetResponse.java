@@ -3,9 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
-import java.util.Date;
-import java.util.TimeZone;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ScheduleByIdGetResponse extends StatusResponse {
 	
 	private Schedule schedule;

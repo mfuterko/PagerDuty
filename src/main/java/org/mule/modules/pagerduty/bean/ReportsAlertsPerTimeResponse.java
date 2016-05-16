@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ReportsAlertsPerTimeResponse extends StatusResponse {
 	
 	private String total_number_of_alerts;

@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class NotifcationRulePostResponse extends StatusResponse {
 	
 	private Notification_rule notification_rule;

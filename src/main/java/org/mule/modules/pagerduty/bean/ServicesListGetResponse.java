@@ -3,8 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ServicesListGetResponse extends StatusResponse {
 	private String total;
 

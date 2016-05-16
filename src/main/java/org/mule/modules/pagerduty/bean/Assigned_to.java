@@ -3,15 +3,21 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Assigned_to.
+ */
 public class Assigned_to {
 	
 	
+	/** The at. */
 	/*
      * This at : For at 
      */
 	private String at;
 
 	
+	/** The object. */
 	/*
      * This object : For object 
      */
@@ -19,6 +25,11 @@ public class Assigned_to {
 
     
     
+    /**
+     * Gets the at.
+     *
+     * @return the at
+     */
     /*
      * TO get the At
      */
@@ -28,6 +39,11 @@ public class Assigned_to {
     }
 
     
+    /**
+     * Sets the at.
+     *
+     * @param at the new at
+     */
     /*
      * TO set the At
      */
@@ -37,6 +53,11 @@ public class Assigned_to {
     }
 
     
+    /**
+     * Gets the object.
+     *
+     * @return the object
+     */
     /*
      * TO get the Object
      */
@@ -46,6 +67,11 @@ public class Assigned_to {
     }
 
     
+    /**
+     * Sets the object.
+     *
+     * @param object the new object
+     */
     /*
      * TO set the Object
      */
@@ -55,6 +81,9 @@ public class Assigned_to {
     }
 
     
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     /*
      * This Is Override For Abstract Method String
      */

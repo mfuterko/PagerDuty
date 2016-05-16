@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class IncidentByIdGetResponse extends StatusResponse {
 	private Assigned_to[] assigned_to;
 
@@ -23,6 +26,8 @@ public class IncidentByIdGetResponse extends StatusResponse {
     private Service service;
 
     private String incident_key;
+    
+    private String trigger_type;
 
     private Trigger_summary_data trigger_summary_data;
 
@@ -33,8 +38,46 @@ public class IncidentByIdGetResponse extends StatusResponse {
     private String trigger_details_html_url;
 
     private String urgency;
+    
+    private Escalation_policy escalation_policy;
+    
+    private String number_of_escalations;
+    
+    private User resolved_by_user;
 
-    public Assigned_to[] getAssigned_to ()
+    public User getResolved_by_user() {
+		return resolved_by_user;
+	}
+
+	public void setResolved_by_user(User resolved_by_user) {
+		this.resolved_by_user = resolved_by_user;
+	}
+
+	public String getNumber_of_escalations() {
+		return number_of_escalations;
+	}
+
+	public void setNumber_of_escalations(String number_of_escalations) {
+		this.number_of_escalations = number_of_escalations;
+	}
+
+	public String getTrigger_type() {
+		return trigger_type;
+	}
+
+	public void setTrigger_type(String trigger_type) {
+		this.trigger_type = trigger_type;
+	}
+
+	public Escalation_policy getEscalation_policy() {
+		return escalation_policy;
+	}
+
+	public void setEscalation_policy(Escalation_policy escalation_policy) {
+		this.escalation_policy = escalation_policy;
+	}
+
+	public Assigned_to[] getAssigned_to ()
     {
         return assigned_to;
     }

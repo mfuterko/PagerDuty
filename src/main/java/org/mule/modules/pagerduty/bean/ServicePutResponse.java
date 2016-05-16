@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ServicePutResponse extends StatusResponse {
 	
 	private Service service;

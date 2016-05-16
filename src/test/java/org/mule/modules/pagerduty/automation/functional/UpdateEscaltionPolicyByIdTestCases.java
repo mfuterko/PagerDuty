@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdPutRequest;
 import org.mule.modules.pagerduty.bean.EscaltionPolicyIdPutResponse;
@@ -16,7 +17,7 @@ public class UpdateEscaltionPolicyByIdTestCases  extends PagerDutyAbstractTestCa
 	
 	public UpdateEscaltionPolicyByIdTestCases()
 	{
-		super();
+		super(PagerDutyConnector.class);
 	}
 	@Test
     @Category({FunctionalTestSuite.class})

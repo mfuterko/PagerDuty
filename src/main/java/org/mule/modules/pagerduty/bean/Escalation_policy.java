@@ -15,8 +15,18 @@ public class Escalation_policy {
     private Escalation_rules[] escalation_rules;
 
     private String num_loops;
+    
+    private String deleted_at;
 
-    public String getId ()
+    public String getDeleted_at() {
+		return deleted_at;
+	}
+
+	public void setDeleted_at(String deleted_at) {
+		this.deleted_at = deleted_at;
+	}
+
+	public String getId ()
     {
         return id;
     }

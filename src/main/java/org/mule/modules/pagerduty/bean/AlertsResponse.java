@@ -3,32 +3,45 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AlertsResponse.
+ */
 public class AlertsResponse extends StatusResponse {
 	
+	/** The total. */
 	/*
      * This total : For total
      */
 	private String total;
 
 	
+	/** The limit. */
 	/*
      * This limit : For limit
      */
     private String limit;
 
     
+    /** The alerts. */
     /*
      * This Alerts Array : For Alerts
      */
     private Alerts[] alerts;
 
     
+    /** The offset. */
     /*
      * This offset : For Offset
      */
     private String offset;
 
     
+    /**
+     * Gets the total.
+     *
+     * @return the total
+     */
     /*
      * TO get the Total
      */
@@ -38,6 +51,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Sets the total.
+     *
+     * @param total the new total
+     */
     /*
      * TO set the Total
      */
@@ -47,6 +65,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Gets the limit.
+     *
+     * @return the limit
+     */
     /*
      * TO get the Limit
      */
@@ -56,6 +79,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Sets the limit.
+     *
+     * @param limit the new limit
+     */
     /*
      * TO set the Limit
      */
@@ -65,6 +93,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
 
+    /**
+     * Gets the alerts.
+     *
+     * @return the alerts
+     */
     /*
      * TO get the Alerts
      */
@@ -74,6 +107,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Sets the alerts.
+     *
+     * @param alerts the new alerts
+     */
     /*
      * TO set the Alerts
      */
@@ -83,6 +121,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Gets the offset.
+     *
+     * @return the offset
+     */
     /*
      * TO get the offset
      */
@@ -92,6 +135,11 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /**
+     * Sets the offset.
+     *
+     * @param offset the new offset
+     */
     /*
      * TO set the Offset
      */
@@ -101,6 +149,9 @@ public class AlertsResponse extends StatusResponse {
     }
 
     
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     /*
      * This Is Override For Abstract Method String
      */

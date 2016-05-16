@@ -4,7 +4,7 @@
 package org.mule.modules.pagerduty.bean;
 
 public class Service {
-	
+		
 	private String html_url;
 
     private String id;
@@ -12,11 +12,22 @@ public class Service {
     private String description;
 
     private String name;
+    
+    private String deleted_at;
 
     public String getHtml_url ()
     {
         return html_url;
     }
+    
+
+	public String getDeleted_at() {
+		return deleted_at;
+	}
+
+	public void setDeleted_at(String deleted_at) {
+		this.deleted_at = deleted_at;
+	}
 
     public void setHtml_url (String html_url)
     {

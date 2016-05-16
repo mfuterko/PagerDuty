@@ -1,5 +1,5 @@
 /**
- * Copyright � 1992-2016 Cisco, Inc.
+ * Copyright ï¿½ 1992-2016 Cisco, Inc.
  */
 package org.mule.modules.pagerduty.automation.functional;
 
@@ -10,12 +10,16 @@ import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
-public class PagerDutyAbstractTestCases  extends AbstractTestCase<PagerDutyConnector>{
-	
+public abstract class PagerDutyAbstractTestCases  extends AbstractTestCase<PagerDutyConnector>{
+		
 	private PagerDutyConnector connector;
 	private ConnectorDispatcher<PagerDutyConnector> dispatcher;
 	
-	
+	public PagerDutyAbstractTestCases(Class<PagerDutyConnector> connector){
+		super(connector);
+	}
+		
+		
 	protected PagerDutyConnector getConnector() {
 		return connector;
 	}
@@ -24,14 +28,16 @@ public class PagerDutyAbstractTestCases  extends AbstractTestCase<PagerDutyConne
 	protected ConnectorDispatcher<PagerDutyConnector> getDispatcher() {
 		return dispatcher;
 	}
+	
+	
 
 	
 	@SuppressWarnings("deprecation")
 	@Before
-	  public void init() throws Exception {
+	public void init() throws Exception {
 
-	    // Initialization for single-test run
-	    ConnectorTestContext.initialize(PagerDutyConnector.class, false);
+		// Initialization for single-test run
+		ConnectorTestContext.initialize(PagerDutyConnector.class, false);
 
 	    // Context instance
 		ConnectorTestContext<PagerDutyConnector> context = ConnectorTestContext
@@ -42,110 +48,109 @@ public class PagerDutyAbstractTestCases  extends AbstractTestCase<PagerDutyConne
 
 	    connector = dispatcher.createMockup();
 
-	  }
+	}
 	
 	public String getEscalationId()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getTeamId()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getId(){
-		return "";
+		return null;
 	}
 	
 	public String getUserId()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getnotificationRuleId()
 	{
-		return "";
+		return null;
 	}
 	public String getEscalationPolicyId()
 	{
-		return "";
+		return null;
 	}
 	public String getQuery()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getInclude()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getServiceId()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getEmailFilterId()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getSince()
 	{
-		return "";
+		return null;
 	}
 	public String getUntil()
 	{
-		return "";
+		return null;
 	}
 	public String getTimeZone()
 	{
-		return "";
+		return null;
 	}
 	
 	public String getOverview()
 	{
-		return "";
+		return null;
 	}
 	public String getContactMethodId()
 	{
-		return "";
+		return null;
 	}
 	public String getNotificationRuleId(){
-		return "";
+		return null;
 	}
 	public String getEscalationRuleId(){
-		return "";
+		return null;
 	}
 	public String getRollup(){
-		return "";
+		return null;
 	}
 	public String getIncidentId(){
-		return "";
+		return null;
 	}
 	public String getDateRange(){
-		return "";
+		return null;
 	}
 	public String getStatus(){
-		return "";
+		return null;
 	}
 	public String getIncidentKey(){
-		return "";
+		return null;
 	}
 	public String getService(){
-		return "";
+		return null;
 	}
 	public String getTeams(){
-		return "";
+		return null;
 	}
 	public String getAssignedToUser(){
-		return "";
+		return null;
 	}
 	public String getFilter(){
-		return "";
+		return null;
 	}
-	
-	
+
 
 }

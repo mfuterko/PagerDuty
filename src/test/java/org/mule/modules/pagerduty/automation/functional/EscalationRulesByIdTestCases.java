@@ -8,17 +8,31 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EscalationRulesByIdTestCases.
+ */
 public class EscalationRulesByIdTestCases extends PagerDutyAbstractTestCases {
 	
 	
+		/**
+		 * Instantiates a new escalation rules by id test cases.
+		 */
 		public EscalationRulesByIdTestCases()
 		{
-			super();
+			super(PagerDutyConnector.class);
 		}
-	    @Test
+	    
+    	/**
+    	 * Test escalation rules by id.
+    	 *
+    	 * @throws Exception the exception
+    	 */
+    	@Test
 	    @Category({FunctionalTestSuite.class})
 	    public void testEscalationRulesById() throws Exception 
 	    {

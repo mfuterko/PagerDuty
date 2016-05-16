@@ -5,38 +5,52 @@ package org.mule.modules.pagerduty.bean;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Alerts.
+ */
 public class Alerts {
 	
+	/** The id. */
 	/*
      * This Id : For Id 
      */
 	private String id;
 
 	
+	/** The address. */
 	/*
      * This Address : For Address 
      */
     private String address;
 
     
+    /** The started_at. */
     /*
      * This Started_at : For Started_at 
      */
     private String started_at;
 
     
+    /** The type. */
     /*
      * This Type : For Type 
      */
     private String type;
 
     
+    /** The user. */
     /*
      * This User : For User 
      */
     private User user;
 
     
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
     /*
      * TO get the Id 
      */
@@ -46,6 +60,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Sets the id.
+     *
+     * @param id the new id
+     */
     /*
      * TO set the Id
      */
@@ -55,6 +74,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Gets the address.
+     *
+     * @return the address
+     */
     /*
      * TO get the Address
      */
@@ -64,6 +88,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Sets the address.
+     *
+     * @param address the new address
+     */
     /*
      * TO set the Address
      */
@@ -73,6 +102,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Gets the started_at.
+     *
+     * @return the started_at
+     */
     /*
      * TO get the Started_at
      */
@@ -82,6 +116,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Sets the started_at.
+     *
+     * @param started_at the new started_at
+     */
     /*
      * TO set the Started_at
      */
@@ -91,6 +130,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Gets the type.
+     *
+     * @return the type
+     */
     /*
      * TO get the Type
      */
@@ -100,6 +144,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Sets the type.
+     *
+     * @param type the new type
+     */
     /*
      * TO set the Type
      */
@@ -109,6 +158,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Gets the user.
+     *
+     * @return the user
+     */
     /*
      * TO get the User
      */
@@ -118,6 +172,11 @@ public class Alerts {
     }
 
     
+    /**
+     * Sets the user.
+     *
+     * @param user the new user
+     */
     /*
      * TO set the User
      */
@@ -127,6 +186,9 @@ public class Alerts {
     }
 
     
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     /*
      * This Is Override For Abstract Method String
      */

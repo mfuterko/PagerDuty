@@ -3,33 +3,46 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Assigned_to_user.
+ */
 public class Assigned_to_user {
 	
 	
+	/** The html_url. */
 	/*
      * This html_url : For html_url
      */
 	private String html_url;
 
 	
+	/** The id. */
 	/*
      * This Id : For Id 
      */
     private String id;
 
     
+    /** The email. */
     /*
      * This email : For email 
      */
     private String email;
 
     
+    /** The name. */
     /*
      * This name : For name 
      */
     private String name;
 
     
+    /**
+     * Gets the html_url.
+     *
+     * @return the html_url
+     */
     /*
      * TO get the Html_url
      */
@@ -39,6 +52,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Sets the html_url.
+     *
+     * @param html_url the new html_url
+     */
     /*
      * TO set the Html_url
      */
@@ -48,6 +66,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
     /*
      * TO get the Id
      */
@@ -57,6 +80,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Sets the id.
+     *
+     * @param id the new id
+     */
     /*
      * TO set the Id
      */
@@ -66,6 +94,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Gets the email.
+     *
+     * @return the email
+     */
     /*
      * TO get the Email
      */
@@ -75,6 +108,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Sets the email.
+     *
+     * @param email the new email
+     */
     /*
      * TO set the Email
      */
@@ -84,6 +122,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
     /*
      * TO get the Name
      */
@@ -93,6 +136,11 @@ public class Assigned_to_user {
     }
 
     
+    /**
+     * Sets the name.
+     *
+     * @param name the new name
+     */
     /*
      * TO set the Name
      */
@@ -102,6 +150,9 @@ public class Assigned_to_user {
     }
 
     
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     /*
      * This Is Override For Abstract Method String
      */

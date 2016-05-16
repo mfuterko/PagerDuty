@@ -145,6 +145,7 @@ public class PagerDutyClient {
       queryParams.add("time_zone", time_zone);
     }
     webResource = webResource.queryParams(queryParams);
+    log.info("Hitting... "+webResource.toString());
     return (AlertsResponse) getData(webResource,AlertsResponse.class);
   }
   
@@ -162,28 +163,32 @@ public class PagerDutyClient {
 	        queryParams.add("include", include);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (EscalationPoliciesGetResponse) getData(webResource, EscalationPoliciesGetResponse.class);
   }
   
   public EscalationPoliciesPostResponse postEscalationPolicies(EscalationPoliciesPostRequest escalationPoliciesRequest){
 	  WebResource webResource = getApiResource().path("escalation_policies");
-	  
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscalationPoliciesPostResponse) postData(escalationPoliciesRequest, webResource, EscalationPoliciesPostResponse.class);
   }
   
   public EscalationPolicyIdGetResponse getEscalationPolicyById(String id){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(id);
-		    return (EscalationPolicyIdGetResponse) getData(webResource, EscalationPolicyIdGetResponse.class);
+	  log.info("Hitting... "+webResource.toString());
+	  return (EscalationPolicyIdGetResponse) getData(webResource, EscalationPolicyIdGetResponse.class);
   }
   
   public EscaltionPolicyIdPutResponse updateEscaltionPolicyById(String id,
 	  EscalationPolicyIdPutRequest escalationPolicyIdPutRequest){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscaltionPolicyIdPutResponse) putData(escalationPolicyIdPutRequest, webResource, EscaltionPolicyIdPutResponse.class);
   }
   
   public StatusResponse deleteEscalationPolicyById(String id){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   /*
@@ -193,16 +198,19 @@ public class PagerDutyClient {
 
   public EscalationRulesByIdGetResponse getEscalationRulesById(String escalationPolicyId){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscalationRulesByIdGetResponse) getData(webResource, EscalationRulesByIdGetResponse.class);
   }
   
   public EscalationRulesByIdPostResponse postEscalationRulesById(String escalationPolicyId){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscalationRulesByIdPostResponse) postData(escalationPolicyId,webResource, EscalationRulesByIdPostResponse.class);
   }
   
   public EscalationRulesByIdPutResponse putEscalationRuesById(String escalationPolicyId,String escalationRuleId, EscalationRulesByIdPutRequest escalationRulesByIdPutRequest){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules").path(escalationRuleId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscalationRulesByIdPutResponse) putData(escalationRulesByIdPutRequest, webResource, EscalationRulesByIdPutResponse.class);
 	  
   }
@@ -213,17 +221,20 @@ public class PagerDutyClient {
 	      queryParams.add("escalation_policy_id", escalation_policy_id);
 	      queryParams.add("id", id);
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (EscalationRuleByPolicyGetResponse) getData(webResource, EscalationRuleByPolicyGetResponse.class);
   }
   
   public EscalationRuleByPolicyPutResponse updateEscalationRule(String escalationPolicyId, String escalationRuleId, EscalationRuleByPolicyPutRequest request){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(escalationPolicyId).path("escalation_rules").path(escalationRuleId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (EscalationRuleByPolicyPutResponse) putData(request, webResource, EscalationRuleByPolicyPutResponse.class);
   }
   
   
   public StatusResponse deleteEscalationRuleByPolicy(String escalation_policy_id, String id){
 	  WebResource webResource = getApiResource().path("escalation_policies").path(escalation_policy_id).path("escalation_rules").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
  
@@ -232,6 +243,7 @@ public class PagerDutyClient {
 	  MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
       queryParams.add("query", query);
       webResource = webResource.queryParams(queryParams);
+      log.info("Hitting... "+webResource.toString());
 	  return (OnCallGetResponse) getData(webResource, OnCallGetResponse.class);
   }
   
@@ -239,6 +251,7 @@ public class PagerDutyClient {
 		  String status, String incidentKey, String service, String teams, String assignedToUser, 
 		  String urgency, String timeZone, String sortBy){
 	  WebResource webResource = getApiResource().path("incidents");
+	  log.info("The requested URL/Service is : "+webResource.toString());
 	  MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 	  	if (since != null) {
 	      queryParams.add("since", since);
@@ -277,12 +290,13 @@ public class PagerDutyClient {
 		    queryParams.add("sort_by", sortBy);
 		}
 		webResource = webResource.queryParams(queryParams);
+		log.info("The requested URL/Service is : "+webResource.toString());
 		return (IncidentsGetResponse) getData(webResource, IncidentsGetResponse.class);
   }
   
   public IncidentByIdGetResponse getIncidentById(String id){
 	  WebResource webResource = getApiResource().path("incidents").path(id);
-	  
+	  log.info("Hitting... "+webResource.toString());
 	  return (IncidentByIdGetResponse) getData(webResource, IncidentByIdGetResponse.class);
   }
   
@@ -316,41 +330,49 @@ public class PagerDutyClient {
 		    queryParams.add("assinged_to_user", assignedToUser);
 		}
 		webResource = webResource.queryParams(queryParams);
+		log.info("Hitting... "+webResource.toString());
 	  return (IncidentCountResponse) getData(webResource, IncidentCountResponse.class);
   }
   
   public IncidentsPutResponse putIncidents(IncidentsPutRequest request){
 	  WebResource webResource = getApiResource().path("incidents");
+	  log.info("Hitting... "+webResource.toString());
 	  return (IncidentsPutResponse) putData(request, webResource, IncidentsPutResponse.class);
   }
   
   public StatusResponse resolveIncident(String incidentId, IncidentsResolvePutRequest request ){
 	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("resolve");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
   }
   
   public StatusResponse acknowledgeIncident(String incidentId, IncidentsAcknowledgePutRequest request ){
 	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("acknowledge");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
   }
   
   public StatusResponse reassignIncident(String incidentId, IncidentsReassignPutRequest request ){
 	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("reassign");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
   }
   
   public StatusResponse snoozeIncident(String incidentId, IncidentsSnoozePutRequest request ){
 	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("snooze");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(request, webResource, StatusResponse.class);
   }
   
   public IncidentNotesGetResponse getIncidentsNotesById(String id){
 	  WebResource webResource = getApiResource().path("incidents").path(id).path("notes");
+	  log.info("Hitting... "+webResource.toString());
 	  return (IncidentNotesGetResponse) getData(webResource, IncidentNotesGetResponse.class);
   }
   
   public IncidentNotesPostResponse postIncidentsNotesById(String incidentId, Note notes, String requesterId){
 	  WebResource webResource = getApiResource().path("incidents").path(incidentId).path("notes");
+	  log.info("Hitting... "+webResource.toString());
 	  return (IncidentNotesPostResponse) postData(incidentId,webResource, IncidentNotesPostResponse.class);
   }
   
@@ -369,14 +391,14 @@ public class PagerDutyClient {
 	    if (until != null) {
 	        queryParams.add("until", until);
 	    }
-	   	
+	    if (until != null) {
 		   queryParams.add("is_overview", isOverview);
-		
+	    }
 	    if (include != null) {
 	        queryParams.add("include", include);
 	    }
 	    webResource = webResource.queryParams(queryParams);
-	  
+	    log.info("Hitting... "+webResource.toString());
 	  return (LogEntriesGetResponse) getData(webResource, LogEntriesGetResponse.class);
   }
   
@@ -400,6 +422,7 @@ public class PagerDutyClient {
 	        queryParams.add("include", include);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (UserLogEntriesGetResponse) getData(webResource, UserLogEntriesGetResponse.class);
   }
   
@@ -423,6 +446,7 @@ public class PagerDutyClient {
 	        queryParams.add("include", include);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (IncidentLogEntriesGetResponse) getData(webResource, IncidentLogEntriesGetResponse.class);
   
   }
@@ -437,6 +461,7 @@ public class PagerDutyClient {
 	      queryParams.add("include", include);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (LogEntriesByIdGetResponse) getData(webResource, LogEntriesByIdGetResponse.class);
 	  
   }
@@ -463,26 +488,31 @@ public class PagerDutyClient {
 		}
 		    
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (MaintenanceWindowsGetResponse) getData(webResource, MaintenanceWindowsGetResponse.class);
   }
   
   public MaintenanceWindowByIdGetResponse getMaintenanceWindowsById(String id){
 	  WebResource webResource = getApiResource().path("maintenance_windows").path(id);
+	  log.info("Hitting... "+webResource.toString());
   	  return (MaintenanceWindowByIdGetResponse) getData(webResource, MaintenanceWindowByIdGetResponse.class);
   }
   
   public MaintenanceWindowsPostResponse postMaintenanceWindows(MaintenanceWindowsPostRequest request){
 	  WebResource webResource = getApiResource().path("maintenance_windows");
+	  log.info("Hitting... "+webResource.toString());
 	  return (MaintenanceWindowsPostResponse) postData(request, webResource,MaintenanceWindowsPostResponse.class);
   }
   
   public MaintenanceWindowPutResponse putMaintenanceWindowById(String id, MaintenanceWindowPutRequest request){
 	  WebResource webResource = getApiResource().path("maintenance_windows").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (MaintenanceWindowPutResponse) putData(request, webResource, MaintenanceWindowPutResponse.class);
   }
   
   public StatusResponse deleteMaintenanceWindow(String id){
 	  WebResource webResource = getApiResource().path("maintenance_windows").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
@@ -496,6 +526,7 @@ public class PagerDutyClient {
 		      queryParams.add("teams", rollup);
 		}
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	  return (ReportsAlertsPerTimeResponse) getData(webResource, ReportsAlertsPerTimeResponse.class);
   }
   
@@ -509,6 +540,7 @@ public class PagerDutyClient {
 		      queryParams.add("teams", rollup);
 		}
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	  return (ReportsIncidentsPerTimeResponse) getData(webResource, ReportsIncidentsPerTimeResponse.class);
   }
   
@@ -523,6 +555,7 @@ public class PagerDutyClient {
 	    	queryParams.add("requesterId", requesterId);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	  return (SchedulesGetResponse) getData(webResource, SchedulesGetResponse.class);
   }
   
@@ -540,6 +573,7 @@ public class PagerDutyClient {
 	    	queryParams.add("time_zone", timeZone);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	  return (ScheduleByIdGetResponse) getData(webResource, ScheduleByIdGetResponse.class);
   }
   
@@ -555,26 +589,31 @@ public class PagerDutyClient {
 	    	queryParams.add("until", until);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (UsersListByScheduleGetResponse) getData(webResource, UsersListByScheduleGetResponse.class);
   }
   
   public SchedulesPostResponse postSchedule(SchedulesPostRequest request){
 	  WebResource webResource = getApiResource().path("schedules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (SchedulesPostResponse) postData(request, webResource, SchedulesPostResponse.class );
   }
   
   public SchedulesPutResponse putSchedule(String id, SchedulesPutRequest request){
 	  WebResource webResource = getApiResource().path("schedules").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (SchedulesPutResponse) putData(request, webResource, SchedulesPutResponse.class);
   }
   
   public SchedulePreviewPostResponse postPreviewSchedule(SchedulePreviewPostRequest request){
 	  WebResource webResource = getApiResource().path("schedules").path("preview");
+	  log.info("Hitting... "+webResource.toString());
 	  return (SchedulePreviewPostResponse) postData(request, webResource, SchedulePreviewPostResponse.class );
   }
   
   public StatusResponse deleteSchedule(String id){
 	  WebResource webResource = getApiResource().path("schedules").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
@@ -591,6 +630,7 @@ public class PagerDutyClient {
 	    	queryParams.add("overflow", overflow);
 	    }
 	    webResource = webResource.queryParams(queryParams);
+	    log.info("Hitting... "+webResource.toString());
 	    return (ListEntriesOfScheduleGetResponse) getData(webResource, ListEntriesOfScheduleGetResponse.class);
   }
   
@@ -607,17 +647,20 @@ public class PagerDutyClient {
 		  queryParams.add("overflow", Boolean.toString(overflow));
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ScheduleOverridesGetResponse) getData(webResource, ScheduleOverridesGetResponse.class);
   }
   
   public ScheduleOverridesPostResponse postScheduleOverriddesById(String scheduleId, 
 		  ScheduleOverridesPostRequest request){
 	  WebResource webResource = getApiResource().path("schedules").path(scheduleId).path("overrides");
+	  log.info("Hitting... "+webResource.toString());
 	  return (ScheduleOverridesPostResponse) postData(request, webResource, ScheduleOverridesPostResponse.class);
   }
   
   public StatusResponse deleteScheduledOverride(String scheduleId, String overridesId){
 	  WebResource webResource = getApiResource().path("schedules").path(scheduleId).path("overrides").path(overridesId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
@@ -638,6 +681,7 @@ public class PagerDutyClient {
 		  queryParams.add("sort_by", sortBy);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ServicesListGetResponse) getData(webResource, ServicesListGetResponse.class);
   }
   
@@ -648,52 +692,62 @@ public class PagerDutyClient {
 		  queryParams.add("include", include);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ServiceDetailsResponse) getData(webResource, ServiceDetailsResponse.class);
   }
   
   public ServicePostResponse postService(ServicePostRequest request){
 	  WebResource webResource = getApiResource().path("services");
+	  log.info("Hitting... "+webResource.toString());
 	    return (ServicePostResponse) postData(request, webResource, ServicePostResponse.class);
   }
   
   public ServicePutResponse putService(String id, ServicePutRequest request){
 	  WebResource webResource = getApiResource().path("services").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ServicePutResponse) putData(request, webResource, ServicePutResponse.class);
   }
   
   public StatusResponse deleteService(String id){
 	  WebResource webResource = getApiResource().path("services").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
   public StatusResponse disableService(String id, String requesterId){
 	  WebResource webResource = getApiResource().path("services").path(id).path("disable");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(requesterId, webResource, StatusResponse.class);
   }
   
   public StatusResponse enableService(String id, String requesterId){
 	  WebResource webResource = getApiResource().path("services").path(id).path("enable");
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) putData(requesterId, webResource, StatusResponse.class);
   }
   
   public RegenerateServiceKeyPostResponse regenerateServiceKey(String id){
 	  WebResource webResource = getApiResource().path("services").path(id).path("regenerate_key");
+	  log.info("Hitting... "+webResource.toString());
 	  return (RegenerateServiceKeyPostResponse) postData(id, webResource, RegenerateServiceKeyPostResponse.class);
   }
   
   public EmailFiltersPostResponse createEmailFilter(String serviceId, EmailFilterPostRequest request){
 	  WebResource webResource = getApiResource().path("services").path(serviceId).path("email_filters");
+	  log.info("Hitting... "+webResource.toString());
 	  return (EmailFiltersPostResponse) postData(request, webResource, EmailFiltersPostResponse.class);
   }
   
   
   public EmailFilterPutResponse updateEmailFilter(String serviceId, String emailFilterId, EmailFilterPutRequest request){
 	  WebResource webResource = getApiResource().path("services").path(serviceId).path("email_filters").path(emailFilterId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (EmailFilterPutResponse) putData(request, webResource, EmailFilterPutResponse.class);
   }
   
   public StatusResponse deleteEmailFilter(String serviceId, String emailFilterId){
 	  WebResource webResource = getApiResource().path("services").path(serviceId).path("email_filters").path(emailFilterId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
@@ -708,6 +762,7 @@ public class PagerDutyClient {
 		  queryParams.add("include", include);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (UsersGetResponse) getData(webResource, UsersGetResponse.class);
   }
   
@@ -718,6 +773,7 @@ public class PagerDutyClient {
 		  queryParams.add("include", include);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (UserDetailsGetResponse) getData(webResource, UserDetailsGetResponse.class);
   }
   public UserDetailsOnCallGetResponse getUserDetailsOnCall(String id, String include){
@@ -727,74 +783,88 @@ public class PagerDutyClient {
 		  queryParams.add("include", include);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (UserDetailsOnCallGetResponse) getData(webResource, UserDetailsOnCallGetResponse.class);
   }
   
   public UserPostResponse createUser(UserPostRequest request){
 	  WebResource webResource = getApiResource().path("users");
+	  log.info("Hitting... "+webResource.toString());
 	  return (UserPostResponse) postData(request, webResource, UserPostResponse.class);
 	  
   }
   
   public UserPutResponse updateUser(String id,UserPutRequest request){
 	  WebResource webResource = getApiResource().path("users").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (UserPutResponse) putData(request, webResource, UserPutResponse.class);
 	  
   }
   
   public StatusResponse deleteUser(String id){
 	  WebResource webResource = getApiResource().path("users").path(id);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
 	  
   }
   
   public UserContactMethodsGetResponse getUserContactMethods(String id){
 	  WebResource webResource = getApiResource().path("users").path(id).path("contact_methods");
+	  log.info("Hitting... "+webResource.toString());
 	  return (UserContactMethodsGetResponse) getData(webResource, UserContactMethodsGetResponse.class);
   }
   
   public ContactMethodDetailsGetResponse getContactMethodDetails(String userId, String contactMethodId){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("contact_methods").path(contactMethodId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ContactMethodDetailsGetResponse) getData(webResource, ContactMethodDetailsGetResponse.class);
   }
   
   public ContactMethodPostResponse createContactMethod(String userId, ContactMethodPostRequest request){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("contact_methods");
+	  log.info("Hitting... "+webResource.toString());
 	  return (ContactMethodPostResponse) postData(request, webResource, ContactMethodPostResponse.class);
   }
   
   public ContactMethodPutResponse updateContactMethod(String userId, String contactMethodId, ContactMethodPutRequest request){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("contact_methods").path(contactMethodId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (ContactMethodPutResponse) putData(request, webResource, ContactMethodPutResponse.class);
   }
   
   public StatusResponse deleteContactMethod(String userId, String contactMethodId){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("contact_methods").path(contactMethodId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
   public NotificationRulesGetResponse getNoficationRules(String userId){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("notification_rules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (NotificationRulesGetResponse) getData(webResource, NotificationRulesGetResponse.class);
   }
   
   public NotificationRuleGetResponse getNotificationRuleDetails(String userId, String notificationRuleId){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("notification_rules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (NotificationRuleGetResponse) getData(webResource, NotificationRuleGetResponse.class);
   }
   
   public NotifcationRulePostResponse createNotificationRules(String userId, NotificationRulePostRequest request){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("notification_rules");
+	  log.info("Hitting... "+webResource.toString());
 	  return (NotifcationRulePostResponse) postData(request, webResource, NotifcationRulePostResponse.class);
   }
   
   public NotificationRulePutResponse updateNotificationRule(String userId, String notificationRuleId, NotificationRulePutRequest request){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("notification_rules").path(notificationRuleId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (NotificationRulePutResponse) putData(request, webResource, NotificationRulePutResponse.class);
   }
   
   public StatusResponse deleteNotificationRule(String userId, String notificationRuleId){
 	  WebResource webResource = getApiResource().path("users").path(userId).path("notification_rules").path(notificationRuleId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
   
@@ -808,6 +878,7 @@ public class PagerDutyClient {
 		  queryParams.add("include", include);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (UsersOnCallGetResponse) getData(webResource, UsersOnCallGetResponse.class);
   }
   
@@ -818,6 +889,7 @@ public class PagerDutyClient {
 		  queryParams.add("query", query);
 	  }
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (TeamsGetResponse) getData(webResource, TeamsGetResponse.class);
 	  
   }
@@ -827,21 +899,25 @@ public class PagerDutyClient {
 	  MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
 	  
 	  webResource = webResource.queryParams(queryParams);
+	  log.info("Hitting... "+webResource.toString());
 	  return (TeamsPostResponse) postData(request, webResource, TeamsPostResponse.class);
   }
   
   public TeamGetResponse getTeamInformation(String teamId){
 	  WebResource webResource = getApiResource().path("teams").path(teamId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (TeamGetResponse) getData(webResource, TeamGetResponse.class);
   }
   
   public TeamPutResponse updateTeam(String teamId, TeamPutRequest request){
 	  WebResource webResource = getApiResource().path("teams").path(teamId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (TeamPutResponse) putData(request, webResource, TeamPutResponse.class);
   }
   
   public StatusResponse deleteTeam(String teamId){
 	  WebResource webResource = getApiResource().path("teams").path(teamId);
+	  log.info("Hitting... "+webResource.toString());
 	  return (StatusResponse) deleteData(webResource);
   }
 

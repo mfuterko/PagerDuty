@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<connector name="PagerDuty">
+    <properties>
+        <connectivity-support>false</connectivity-support>
+        <OAuth-authentication>false</OAuth-authentication>
+        <metadata>static</metadata>
+        <datasense-enabled>true</datasense-enabled>
+        <transformer>false</transformer>
+    </properties>
+    <global-config credentialsFile="">
+        <config name="config">
+            <attributes>
+                <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://eidiko.pagerduty.com/api/v1" category="General"></attribute>
+                <attribute name="authorization" use="optional" caption="Authorization" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </config>
+    </global-config>
+    <message-processors>
+        <processor name="getAlerts" xmlName="get-alerts" caption="Get alerts">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="sinceDate" use="required" caption="Since Date" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="untilDate" use="required" caption="Until Date" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="filterType" use="optional" caption="Filter Type" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="time_zone" use="optional" caption="Time_zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getEscalationPolicies" xmlName="get-escalation-policies" caption="Get escalation policies">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="optional" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="teams" use="optional" caption="Teams" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getEscalationPolicyById" xmlName="get-escalation-policy-by-id" caption="Get escalation policy by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="optional" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateEscaltionPolicyById" xmlName="update-escaltion-policy-by-id" caption="Update escaltion policy by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="escalationPolicyIdPutRequest-ref" use="optional" caption="Escalation Policy Id Put Request Reference" group="General" type="string" javaType="org.mule.modules.pagerduty.bean.EscalationPolicyIdPutRequest" default="#[payload]" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="deleteEscalationPolicyById" xmlName="delete-escalation-policy-by-id" caption="Delete escalation policy by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getEscalationRulesById" xmlName="get-escalation-rules-by-id" caption="Get escalation rules by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postEscalationRulesById" xmlName="post-escalation-rules-by-id" caption="Post escalation rules by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="putEscalationRuesById" xmlName="put-escalation-rues-by-id" caption="Put escalation rues by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="escalationPolicyId" use="required" caption="Escalation Policy Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="escalationRuleId" use="required" caption="Escalation Rule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="escalation-rules-by-id-put-request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" base="escalation-rules-by-id-put-request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="escalation_rules" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="escalation_rules" category="General"></attribute>
+        <attribute name="escalation_delay_in_minutes" use="optional" caption="Escalation_delay_in_minutes" type="string" javaType="java.lang.String" base="escalation_rules" category="General"></attribute>
+        <attribute name="targets-ref" use="optional" caption="Targets Reference" type="string" javaType="org.mule.modules.pagerduty.bean.Targets[]" base="escalation_rules" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" base="escalation-rules-by-id-put-request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="rule_object" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="escalation_rules" category="General"></attribute>
+                <attribute name="time_zone" use="optional" caption="Time_zone" type="string" javaType="java.lang.String" base="rule_object" category="General"></attribute>
+                <attribute name="color" use="optional" caption="Color" type="string" javaType="java.lang.String" base="rule_object" category="General"></attribute>
+                <attribute name="email" use="optional" caption="Email" type="string" javaType="java.lang.String" base="rule_object" category="General"></attribute>
+                <attribute name="type" use="optional" caption="Type" type="string" javaType="java.lang.String" base="rule_object" category="General"></attribute>
+                <attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" base="escalation-rules-by-id-put-request" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Escalation Rules By Id Put Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getEsclationRuleByPolicy" xmlName="get-esclation-rule-by-policy" caption="Get esclation rule by policy">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="escalation_policy_id" use="required" caption="Escalation_policy_id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="deleteEscalationRuleByPolicy" xmlName="delete-escalation-rule-by-policy" caption="Delete escalation rule by policy">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="escalation_policy_id" use="required" caption="Escalation_policy_id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getOnCall" xmlName="get-on-call" caption="Get on call">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="required" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getIncidents" xmlName="get-incidents" caption="Get incidents">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="untill" use="optional" caption="Untill" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="dateRange" use="optional" caption="Date Range" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="fields" use="optional" caption="Fields" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="status" use="optional" caption="Status" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="incidentKey" use="optional" caption="Incident Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="service" use="optional" caption="Service" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="teams" use="optional" caption="Teams" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="assignedToUser" use="optional" caption="Assigned To User" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="urgency" use="optional" caption="Urgency" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="sortBy" use="optional" caption="Sort By" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getIncidentsById" xmlName="get-incidents-by-id" caption="Get incidents by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getIncidentsCount" xmlName="get-incidents-count" caption="Get incidents count">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="optional" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="dateRange" use="optional" caption="Date Range" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="status" use="optional" caption="Status" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="incidentKey" use="optional" caption="Incident Key" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="service" use="optional" caption="Service" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="teams" use="optional" caption="Teams" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="assignedToUser" use="optional" caption="Assigned To User" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="putIncidents" xmlName="put-incidents" caption="Put incidents">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="incidents-ref" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="requester_id" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="resolveIncident" xmlName="resolve-incident" caption="Resolve incident">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="incidentId" use="required" caption="Incident Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="requester_id" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="acknowledgeIncident" xmlName="acknowledge-incident" caption="Acknowledge incident">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="incidentId" use="required" caption="Incident Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="requester_id" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="reassignIncident" xmlName="reassign-incident" caption="Reassign incident">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="incidentId" use="required" caption="Incident Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="requester_id" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="escalation_policy" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="escalation_level" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="assigned_to_user" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="snoozeIncident" xmlName="snooze-incident" caption="Snooze incident">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="incidentId" use="required" caption="Incident Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="requester_id" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="duration" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getIncidentsNotesById" xmlName="get-incidents-notes-by-id" caption="Get incidents notes by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postIncidentsNotesById" xmlName="post-incidents-notes-by-id" caption="Post incidents notes by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="registerId" use="required" caption="Register Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="notes" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="content" use="optional" caption="Content" type="string" javaType="java.lang.String" base="notes" category="General"></attribute>
+<attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="notes" category="General"></attribute>
+<attribute name="created_at" use="optional" caption="Created_at" type="string" javaType="java.lang.String" base="notes" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Notes Reference" type="string" javaType="java.lang.String" base="notes" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Notes Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="user" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="member_order" use="optional" caption="Member_order" type="string" javaType="java.lang.String" base="user" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Notes Reference" type="string" javaType="java.lang.String" base="notes" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Notes Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements/>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getLogEntries" xmlName="get-log-entries" caption="Get log entries">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="optional" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="isOverview" use="optional" caption="Is Overview" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUserLogEntries" xmlName="get-user-log-entries" caption="Get user log entries">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="optional" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="isOverview" use="optional" caption="Is Overview" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getIncidentLogEntries" xmlName="get-incident-log-entries" caption="Get incident log entries">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="incidentId" use="required" caption="Incident Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="optional" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="isOverview" use="optional" caption="Is Overview" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getLogEntriesById" xmlName="get-log-entries-by-id" caption="Get log entries by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="required" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="required" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getMaintenanceWindows" xmlName="get-maintenance-windows" caption="Get maintenance windows">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="optional" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="serviceIds" use="optional" caption="Service Ids" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="teams" use="optional" caption="Teams" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="filter" use="optional" caption="Filter" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getMaintenanceWindowsById" xmlName="get-maintenance-windows-by-id" caption="Get maintenance windows by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postMaintenanceWindows" xmlName="post-maintenance-windows" caption="Post maintenance windows">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="request-ref" use="required" caption="Request Reference" group="General" type="string" javaType="org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="putMaintenanceWindowById" xmlName="put-maintenance-window-by-id" caption="Put maintenance window by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="start_time" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="end_time" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="description" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="service_ids" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteMaintenanceWindow" xmlName="delete-maintenance-window" caption="Delete maintenance window">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getAlertsPerTime" xmlName="get-alerts-per-time" caption="Get alerts per time">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="since" use="required" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="required" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="rollup" use="optional" caption="Rollup" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getIncidentsPerTime" xmlName="get-incidents-per-time" caption="Get incidents per time">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="since" use="required" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="required" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="rollup" use="optional" caption="Rollup" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getScheduleById" xmlName="get-schedule-by-id" caption="Get schedule by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="since" use="optional" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="optional" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getListOfSchedulesOfUser" xmlName="get-list-of-schedules-of-user" caption="Get list of schedules of user">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="required" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="required" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postSchedule" xmlName="post-schedule" caption="Post schedule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="request-ref" use="required" caption="Request Reference" group="General" type="string" javaType="org.mule.modules.pagerduty.bean.SchedulesPostRequest" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="putSchedule" xmlName="put-schedule" caption="Put schedule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="overflow" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="schedule" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="time_zone" use="optional" caption="Time_zone" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="escalation_policies-ref" use="optional" caption="Escalation_policies Reference" type="string" javaType="java.lang.String[]" base="schedule" category="General"></attribute>
+        <attribute name="schedule_layers-ref" use="optional" caption="Schedule_layers Reference" type="string" javaType="org.mule.modules.pagerduty.bean.Schedule_layers[]" base="schedule" category="General"></attribute>
+        <attribute name="today" use="optional" caption="Today" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="final_schedule" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="rendered_coverage_percentage" use="optional" caption="Rendered_coverage_percentage" type="string" javaType="java.lang.String" base="final_schedule" category="General"></attribute>
+                <attribute name="rendered_schedule_entries-ref" use="optional" caption="Rendered_schedule_entries Reference" type="string" javaType="java.lang.String[]" base="final_schedule" category="General"></attribute>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+<childElement name="overrides_subschedule" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="rendered_schedule_entries-ref" use="optional" caption="Rendered_schedule_entries Reference" type="string" javaType="java.lang.String[]" base="final_schedule" category="General"></attribute>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="postPreviewSchedule" xmlName="post-preview-schedule" caption="Post preview schedule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="since" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="until" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="overview" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements>
+                        <childElement name="schedule" use="optional" category="General">
+                            <attributes>
+<controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="id" use="optional" caption="Id" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="time_zone" use="optional" caption="Time_zone" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="escalation_policies-ref" use="optional" caption="Escalation_policies Reference" type="string" javaType="java.lang.String[]" base="schedule" category="General"></attribute>
+        <attribute name="schedule_layers-ref" use="optional" caption="Schedule_layers Reference" type="string" javaType="org.mule.modules.pagerduty.bean.Schedule_layers[]" base="schedule" category="General"></attribute>
+        <attribute name="today" use="optional" caption="Today" type="string" javaType="java.lang.String" base="schedule" category="General"></attribute>
+        <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+    </attributes>
+</controller>
+<controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+    <attributes>
+        <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+    </attributes>
+</controller>
+                            </attributes>
+                            <childElements>
+<childElement name="final_schedule" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="rendered_coverage_percentage" use="optional" caption="Rendered_coverage_percentage" type="string" javaType="java.lang.String" base="final_schedule" category="General"></attribute>
+                <attribute name="rendered_schedule_entries-ref" use="optional" caption="Rendered_schedule_entries Reference" type="string" javaType="java.lang.String[]" base="final_schedule" category="General"></attribute>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+<childElement name="overrides_subschedule" use="optional" category="General">
+    <attributes>
+        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="rendered_schedule_entries-ref" use="optional" caption="Rendered_schedule_entries Reference" type="string" javaType="java.lang.String[]" base="final_schedule" category="General"></attribute>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+            </attributes>
+        </controller>
+        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+            <attributes>
+                <attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+        </controller>
+    </attributes>
+    <childElements/>
+</childElement>
+                            </childElements>
+                        </childElement>
+                    </childElements>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteSchedule" xmlName="delete-schedule" caption="Delete schedule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getListEntriesOfSchedule" xmlName="get-list-entries-of-schedule" caption="Get list entries of schedule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="required" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="required" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="overflow" use="optional" caption="Overflow" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="userId" use="optional" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getScheduleOverriddesById" xmlName="get-schedule-overriddes-by-id" caption="Get schedule overriddes by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="scheduleId" use="required" caption="Schedule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="since" use="required" caption="Since" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="until" use="required" caption="Until" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="editable" use="required" caption="Editable" group="General" type="boolean" javaType="boolean" category="General"></attribute>
+                <attribute name="overflow" use="required" caption="Overflow" group="General" type="boolean" javaType="boolean" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postScheduleOverriddesById" xmlName="post-schedule-overriddes-by-id" caption="Post schedule overriddes by id">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="scheduleId" use="required" caption="Schedule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="request-ref" use="required" caption="Request Reference" group="General" type="string" javaType="org.mule.modules.pagerduty.bean.ScheduleOverridesPostRequest" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getServicesList" xmlName="get-services-list" caption="Get services list">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="teams" use="optional" caption="Teams" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="timeZone" use="optional" caption="Time Zone" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="query" use="optional" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="sortBy" use="optional" caption="Sort By" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getServiceDetails" xmlName="get-service-details" caption="Get service details">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="postService" xmlName="post-service" caption="Post service">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="escalationPolicyId" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="type" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="vendorId" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="description" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="acknowledgmentTimeout" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="autoResolveTimeout" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="severityFilter" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="putService" xmlName="put-service" caption="Put service">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="description" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="escalationPolicyId" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="acknowledgmentTimeout" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="autoResolveTimeout" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="severityFilter" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteService" xmlName="delete-service" caption="Delete service">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="disableService" xmlName="disable-service" caption="Disable service">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="requesterId" use="optional" caption="Requester Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="enableService" xmlName="enable-service" caption="Enable service">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="requesterId" use="optional" caption="Requester Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createEmailFilter" xmlName="create-email-filter" caption="Create email filter">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="serviceId" use="required" caption="Service Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="subjectMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="subjectRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="bodyMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="bodyRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="fromEmailMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="fromEmailRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="updateEmailFilter" xmlName="update-email-filter" caption="Update email filter">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="serviceId" use="required" caption="Service Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="emailFilterId" use="required" caption="Email Filter Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="subjectMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="subjectRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="bodyMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="bodyRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="fromEmailMode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="fromEmailRegex" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteEmailFilter" xmlName="delete-email-filter" caption="Delete email filter">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="serviceId" use="required" caption="Service Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="emailFilterId" use="required" caption="Email Filter Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUsers" xmlName="get-users" caption="Get users">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="optional" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUserDetails" xmlName="get-user-details" caption="Get user details">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUserDetailsOnCall" xmlName="get-user-details-on-call" caption="Get user details on call">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createUser" xmlName="create-user" caption="Create user">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="request-ref" use="required" caption="Request Reference" group="General" type="string" javaType="org.mule.modules.pagerduty.bean.UserPostRequest" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateUser" xmlName="update-user" caption="Update user">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="role" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="email" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="jobTitle" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="timeZone" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteUser" xmlName="delete-user" caption="Delete user">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUserContactMethods" xmlName="get-user-contact-methods" caption="Get user contact methods">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="id" use="required" caption="Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getContactMethodDetails" xmlName="get-contact-method-details" caption="Get contact method details">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="contactMethodId" use="required" caption="Contact Method Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createContactMethod" xmlName="create-contact-method" caption="Create contact method">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="type" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="address" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="countryCode" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="label" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="sendShortEmail" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="updateContactMethod" xmlName="update-contact-method" caption="Update contact method">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="contactMethodId" use="required" caption="Contact Method Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="address" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="countryDate" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="label" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="sendShortEmail" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteContactMethod" xmlName="delete-contact-method" caption="Delete contact method">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="contactMethodId" use="required" caption="Contact Method Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getNoficationRules" xmlName="get-nofication-rules" caption="Get nofication rules">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getNotificationRuleDetails" xmlName="get-notification-rule-details" caption="Get notification rule details">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="notificationRuleId" use="required" caption="Notification Rule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createNotificationRules" xmlName="create-notification-rules" caption="Create notification rules">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="startDelayInMinutes" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="contactMethodId" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="updateNotificationRule" xmlName="update-notification-rule" caption="Update notification rule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="notificationRuleId" use="required" caption="Notification Rule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="start_delay_in_minutes" use="optional" caption="Start_delay_in_minutes" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+<attribute name="contact_method_id" use="optional" caption="Contact_method_id" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteNotificationRule" xmlName="delete-notification-rule" caption="Delete notification rule">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="userId" use="required" caption="User Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="notificationRuleId" use="required" caption="Notification Rule Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getUsersOnCall" xmlName="get-users-on-call" caption="Get users on call">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="optional" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="include" use="optional" caption="Include" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="getTeams" xmlName="get-teams" caption="Get teams">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="query" use="required" caption="Query" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="createTeam" xmlName="create-team" caption="Create team">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes/>
+            <childElements>
+                <childElement name="request" use="required" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="description" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="getTeamInformation" xmlName="get-team-information" caption="Get team information">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="teamId" use="required" caption="Team Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="updateTeam" xmlName="update-team" caption="Update team">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="teamId" use="required" caption="Team Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements>
+                <childElement name="request" use="optional" group="General" category="General">
+                    <attributes>
+                        <controller caption="Define attributes" controlled="complex" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="description" use="optional" type="" javaType="" base="request" category="General"></attribute>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" base="request" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                        <controller caption="Reference or expression" controlled="useReference" controllerType="radioBoolean">
+                            <attributes>
+<attribute name="ref" use="optional" caption="Request Reference" type="string" javaType="java.lang.String" category="General"></attribute>
+                            </attributes>
+                        </controller>
+                    </attributes>
+                    <childElements/>
+                </childElement>
+            </childElements>
+        </processor>
+        <processor name="deleteTeam" xmlName="delete-team" caption="Delete team">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="teamId" use="required" caption="Team Id" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+        <processor name="addEntity" xmlName="add-entity" caption="Add entity">
+            <properties>
+                <datamapper input="" output=""/>
+                <auto-paging>false</auto-paging>
+                <query-support>false</query-support>
+            </properties>
+            <attributes>
+                <attribute name="key" use="optional" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="key" use="required" caption="Key" group="General" type="type-chooser" javaType="java.lang.String" category="General"></attribute>
+                <attribute name="entity" use="optional" caption="Entity" group="General" type="element-controller-map" javaType="java.util.Map&lt;java.lang.String,java.lang.Object&gt;" category="General"></attribute>
+            </attributes>
+            <childElements/>
+        </processor>
+    </message-processors>
+</connector>

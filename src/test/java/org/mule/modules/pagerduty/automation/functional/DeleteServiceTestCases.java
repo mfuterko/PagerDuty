@@ -8,15 +8,29 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.StatusResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DeleteServiceTestCases.
+ */
 public class DeleteServiceTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new delete service test cases.
+	 */
 	public DeleteServiceTestCases()
 	{
-		super();
+		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test delete service.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testDeleteService() throws Exception 

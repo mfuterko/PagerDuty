@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+
 public class MaintenanceWindowByIdGetResponse extends StatusResponse {
 
 }

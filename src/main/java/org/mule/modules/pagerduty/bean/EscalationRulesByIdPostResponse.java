@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EscalationRulesByIdPostResponse extends StatusResponse {
 	
 	private Escalation_rule escalation_rule;
