@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowByIdGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetMaintenanceWindowsByIdTestCases.
+ */
 public class GetMaintenanceWindowsByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the maintenance windows by id test cases.
+	 */
 	public GetMaintenanceWindowsByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+    
+    /**
+     * Test get maintenance windows by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @Category({FunctionalTestSuite.class})
     public void testGetMaintenanceWindowsById() throws Exception 

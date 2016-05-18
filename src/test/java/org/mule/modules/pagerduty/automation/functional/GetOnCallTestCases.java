@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.OnCallGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetOnCallTestCases.
+ */
 public class GetOnCallTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the on call test cases.
+	 */
 	public GetOnCallTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test get on call.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testGetOnCall() throws Exception {

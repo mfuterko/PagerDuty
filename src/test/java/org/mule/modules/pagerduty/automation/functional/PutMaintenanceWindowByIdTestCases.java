@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowPutRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PutMaintenanceWindowByIdTestCases.
+ */
 public class PutMaintenanceWindowByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new put maintenance window by id test cases.
+	 */
 	public PutMaintenanceWindowByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+    
+    /**
+     * Test put maintenance window by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @Category({FunctionalTestSuite.class})
     public void testPutMaintenanceWindowById() throws Exception 

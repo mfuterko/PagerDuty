@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.UserPutRequest;
 import org.mule.modules.pagerduty.bean.UserPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateUserTestCases.
+ */
 public class UpdateUserTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new update user test cases.
+	 */
 	public UpdateUserTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test update user.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testUpdateUser() throws Exception 

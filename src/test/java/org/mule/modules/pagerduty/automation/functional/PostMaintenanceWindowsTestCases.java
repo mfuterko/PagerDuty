@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostRequest;
 import org.mule.modules.pagerduty.bean.MaintenanceWindowsPostResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PostMaintenanceWindowsTestCases.
+ */
 public class PostMaintenanceWindowsTestCases extends PagerDutyAbstractTestCases {
 	
+	/**
+	 * Instantiates a new post maintenance windows test cases.
+	 */
 	public PostMaintenanceWindowsTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+    
+    /**
+     * Test post maintenance windows.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @Category({FunctionalTestSuite.class})
     public void testPostMaintenanceWindows() throws Exception 

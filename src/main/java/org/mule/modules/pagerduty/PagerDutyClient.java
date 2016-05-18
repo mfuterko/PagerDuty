@@ -120,6 +120,11 @@ public class PagerDutyClient {
   private static final Logger log = Logger.getLogger(PagerDutyClient.class
     .getName());
 
+  /**
+   * Instantiates a new pager duty client.
+   *
+   * @param connector the connector
+   */
   public PagerDutyClient(PagerDutyConnector connector) {
     setConnector(connector);
 
@@ -896,9 +901,6 @@ public class PagerDutyClient {
   
   public TeamsPostResponse createTeam(TeamPostRequest request){
 	  WebResource webResource = getApiResource().path("teams");
-	  MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-	  
-	  webResource = webResource.queryParams(queryParams);
 	  log.info("Hitting... "+webResource.toString());
 	  return (TeamsPostResponse) postData(request, webResource, TeamsPostResponse.class);
   }

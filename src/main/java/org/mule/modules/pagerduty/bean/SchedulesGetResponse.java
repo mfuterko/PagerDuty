@@ -5,58 +5,109 @@ package org.mule.modules.pagerduty.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SchedulesGetResponse.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SchedulesGetResponse extends StatusResponse {
 	
-	 private String total;
+	 /** The total. */
+ 	private String total;
 
-	    private String limit;
+	    /** The limit. */
+    	private String limit;
 
-	    private Schedules[] schedules;
+	    /** The schedules. */
+    	private Schedules[] schedules;
 
-	    private String offset;
+	    /** The offset. */
+    	private String offset;
 
-	    public String getTotal ()
+	    /**
+    	 * Gets the total.
+    	 *
+    	 * @return the total
+    	 */
+    	public String getTotal ()
 	    {
 	        return total;
 	    }
 
-	    public void setTotal (String total)
+	    /**
+    	 * Sets the total.
+    	 *
+    	 * @param total the new total
+    	 */
+    	public void setTotal (String total)
 	    {
 	        this.total = total;
 	    }
 
-	    public String getLimit ()
+	    /**
+    	 * Gets the limit.
+    	 *
+    	 * @return the limit
+    	 */
+    	public String getLimit ()
 	    {
 	        return limit;
 	    }
 
-	    public void setLimit (String limit)
+	    /**
+    	 * Sets the limit.
+    	 *
+    	 * @param limit the new limit
+    	 */
+    	public void setLimit (String limit)
 	    {
 	        this.limit = limit;
 	    }
 
-	    public Schedules[] getSchedules ()
+	    /**
+    	 * Gets the schedules.
+    	 *
+    	 * @return the schedules
+    	 */
+    	public Schedules[] getSchedules ()
 	    {
 	        return schedules;
 	    }
 
-	    public void setSchedules (Schedules[] schedules)
+	    /**
+    	 * Sets the schedules.
+    	 *
+    	 * @param schedules the new schedules
+    	 */
+    	public void setSchedules (Schedules[] schedules)
 	    {
 	        this.schedules = schedules;
 	    }
 
-	    public String getOffset ()
+	    /**
+    	 * Gets the offset.
+    	 *
+    	 * @return the offset
+    	 */
+    	public String getOffset ()
 	    {
 	        return offset;
 	    }
 
-	    public void setOffset (String offset)
+	    /**
+    	 * Sets the offset.
+    	 *
+    	 * @param offset the new offset
+    	 */
+    	public void setOffset (String offset)
 	    {
 	        this.offset = offset;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [total = "+total+", limit = "+limit+", schedules = "+schedules+", offset = "+offset+"]";

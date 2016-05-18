@@ -3,81 +3,154 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Log_entry.
+ */
 public class Log_entry {
 	
-	 private String id;
+	 /** The id. */
+ 	private String id;
 
-	    private String created_at;
+	    /** The created_at. */
+    	private String created_at;
 
-	    private Contexts[] contexts;
+	    /** The contexts. */
+    	private Contexts[] contexts;
 
-	    private String type;
+	    /** The type. */
+    	private String type;
 
-	    private Channel channel;
+	    /** The channel. */
+    	private Channel channel;
 
-	    private Agent agent;
+	    /** The agent. */
+    	private Agent agent;
 
-	    public String getId ()
+	    /**
+    	 * Gets the id.
+    	 *
+    	 * @return the id
+    	 */
+    	public String getId ()
 	    {
 	        return id;
 	    }
 
-	    public void setId (String id)
+	    /**
+    	 * Sets the id.
+    	 *
+    	 * @param id the new id
+    	 */
+    	public void setId (String id)
 	    {
 	        this.id = id;
 	    }
 
-	    public String getCreated_at ()
+	    /**
+    	 * Gets the created_at.
+    	 *
+    	 * @return the created_at
+    	 */
+    	public String getCreated_at ()
 	    {
 	        return created_at;
 	    }
 
-	    public void setCreated_at (String created_at)
+	    /**
+    	 * Sets the created_at.
+    	 *
+    	 * @param created_at the new created_at
+    	 */
+    	public void setCreated_at (String created_at)
 	    {
 	        this.created_at = created_at;
 	    }
 
-	    public Contexts[] getContexts ()
+	    /**
+    	 * Gets the contexts.
+    	 *
+    	 * @return the contexts
+    	 */
+    	public Contexts[] getContexts ()
 	    {
 	        return contexts;
 	    }
 
-	    public void setContexts (Contexts[] contexts)
+	    /**
+    	 * Sets the contexts.
+    	 *
+    	 * @param contexts the new contexts
+    	 */
+    	public void setContexts (Contexts[] contexts)
 	    {
 	        this.contexts = contexts;
 	    }
 
-	    public String getType ()
+	    /**
+    	 * Gets the type.
+    	 *
+    	 * @return the type
+    	 */
+    	public String getType ()
 	    {
 	        return type;
 	    }
 
-	    public void setType (String type)
+	    /**
+    	 * Sets the type.
+    	 *
+    	 * @param type the new type
+    	 */
+    	public void setType (String type)
 	    {
 	        this.type = type;
 	    }
 
-	    public Channel getChannel ()
+	    /**
+    	 * Gets the channel.
+    	 *
+    	 * @return the channel
+    	 */
+    	public Channel getChannel ()
 	    {
 	        return channel;
 	    }
 
-	    public void setChannel (Channel channel)
+	    /**
+    	 * Sets the channel.
+    	 *
+    	 * @param channel the new channel
+    	 */
+    	public void setChannel (Channel channel)
 	    {
 	        this.channel = channel;
 	    }
 
-	    public Agent getAgent ()
+	    /**
+    	 * Gets the agent.
+    	 *
+    	 * @return the agent
+    	 */
+    	public Agent getAgent ()
 	    {
 	        return agent;
 	    }
 
-	    public void setAgent (Agent agent)
+	    /**
+    	 * Sets the agent.
+    	 *
+    	 * @param agent the new agent
+    	 */
+    	public void setAgent (Agent agent)
 	    {
 	        this.agent = agent;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [id = "+id+", created_at = "+created_at+", contexts = "+contexts+", type = "+type+", channel = "+channel+", agent = "+agent+"]";

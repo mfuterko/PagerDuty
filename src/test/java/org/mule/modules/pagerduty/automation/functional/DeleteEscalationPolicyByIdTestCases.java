@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.StatusResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DeleteEscalationPolicyByIdTestCases.
+ */
 public class DeleteEscalationPolicyByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new delete escalation policy by id test cases.
+	 */
 	public DeleteEscalationPolicyByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test delete escalation policy by id.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testDeleteEscalationPolicyById() throws Exception {

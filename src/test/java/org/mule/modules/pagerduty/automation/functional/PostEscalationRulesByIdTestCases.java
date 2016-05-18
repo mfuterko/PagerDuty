@@ -12,13 +12,26 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPostResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PostEscalationRulesByIdTestCases.
+ */
 public class PostEscalationRulesByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new post escalation rules by id test cases.
+	 */
 	public PostEscalationRulesByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
-	    @Test
+	    
+    	/**
+    	 * Test post escalation rules by id.
+    	 *
+    	 * @throws Exception the exception
+    	 */
+    	@Test
 	    @Category({FunctionalTestSuite.class})
 	    public void testPostEscalationRulesById() throws Exception 
 	    {

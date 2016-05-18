@@ -36,10 +36,10 @@ public class DeleteTeamTestCases extends PagerDutyAbstractTestCases{
     @Category({FunctionalTestSuite.class})
     public void testDeleteTeam() throws Exception 
 	{
-		String teamId = getTeamId();
+		String teamId = "PX8ZIBZ";
 		StatusResponse statusResponse = getConnector().deleteTeam(teamId);
 		assertNotNull(statusResponse);
-	    assertEquals("200", statusResponse.getStatusCode() );
+	    assertEquals("204", statusResponse.getStatusCode() );
 	}
 
 }

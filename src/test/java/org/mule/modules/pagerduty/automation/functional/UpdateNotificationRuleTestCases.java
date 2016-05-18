@@ -12,13 +12,26 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.NotificationRulePutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateNotificationRuleTestCases.
+ */
 public class UpdateNotificationRuleTestCases extends PagerDutyAbstractTestCases{
 
 	
+	/**
+	 * Instantiates a new update notification rule test cases.
+	 */
 	public UpdateNotificationRuleTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test update notification rule.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testUpdateNotificationRule() throws Exception 

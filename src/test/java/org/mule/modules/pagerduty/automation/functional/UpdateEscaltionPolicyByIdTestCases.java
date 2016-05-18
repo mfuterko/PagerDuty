@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationPolicyIdPutRequest;
 import org.mule.modules.pagerduty.bean.EscaltionPolicyIdPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateEscaltionPolicyByIdTestCases.
+ */
 public class UpdateEscaltionPolicyByIdTestCases  extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new update escaltion policy by id test cases.
+	 */
 	public UpdateEscaltionPolicyByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test update escaltion policy by id.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testUpdateEscaltionPolicyById() throws Exception {

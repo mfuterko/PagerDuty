@@ -3,21 +3,39 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UserPutResponse.
+ */
 public class UserPutResponse extends StatusResponse {
 	
-	 private User user;
+	 /** The user. */
+ 	private User user;
 
-	    public User getUser ()
+	    /**
+    	 * Gets the user.
+    	 *
+    	 * @return the user
+    	 */
+    	public User getUser ()
 	    {
 	        return user;
 	    }
 
-	    public void setUser (User user)
+	    /**
+    	 * Sets the user.
+    	 *
+    	 * @param user the new user
+    	 */
+    	public void setUser (User user)
 	    {
 	        this.user = user;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [user = "+user+"]";

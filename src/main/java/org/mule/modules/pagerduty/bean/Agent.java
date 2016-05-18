@@ -13,78 +13,39 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class Agent {
 	
 	/** The id. */
-	/*
-	 * This id: Agent Id
-	 */
 	private String id;
 	
-	/*
-	 * This time_zone : time zone of the locale
-	 */
-
     /** The time_zone. */
 	private String time_zone;
     
-    /*
-     * This invitation_sent
-     */
-
     /** The invitation_sent. */
     private String invitation_sent;
 
     
     /** The avatar_url. */
-    /*
-     * This avatar_url  : For Image Url
-     */
     private String avatar_url;
 
     /** The color. */
-    /*
-     * This is For color 
-     */
     private String color;
 
     /** The email. */
-    /*
-     * This email  : For Agent Email
-     */
     private String email;
 
     /** The name. */
-    /*
-     * This name  : For Agent Name
-     */
     private String name;
 
     /** The role. */
-    /*
-     * This role  : For Agent Role
-     */
     private String role;
 
     /** The user_url. */
-    /*
-     * This user_url  : For user url
-     */
     private String user_url;
 
     /** The type. */
-    /*
-     * This Type  : For Agent Type
-     */
     private String type;
 
     /** The marketing_opt_out. */
-    /*
-     * This marketing_opt_out  : For Marketing Operation Out
-     */
     private String marketing_opt_out;
     
-    /*
-     * TO get the agents id
-     */
-
     /**
      * Gets the id.
      *
@@ -100,9 +61,6 @@ public class Agent {
      *
      * @param id the new id
      */
-    /*
-     * TO set the agents id
-     */
     public void setId (String id)
     {
         this.id = id;
@@ -112,9 +70,6 @@ public class Agent {
      * Gets the time_zone.
      *
      * @return the time_zone
-     */
-    /*
-     * TO get the Time_Zone
      */
     public String getTime_zone ()
     {
@@ -126,9 +81,6 @@ public class Agent {
      *
      * @param time_zone the new time_zone
      */
-    /*
-     * TO set the Time_zone
-     */
     public void setTime_zone (String time_zone)
     {
         this.time_zone = time_zone;
@@ -139,9 +91,6 @@ public class Agent {
      *
      * @return the invitation_sent
      */
-    /*
-     * TO get the Invitation_sent
-     */
     public String getInvitation_sent ()
     {
         return invitation_sent;
@@ -151,9 +100,6 @@ public class Agent {
      * Sets the invitation_sent.
      *
      * @param invitation_sent the new invitation_sent
-     */
-    /*
-     * TO set the Invitation_sent
      */
     public void setInvitation_sent (String invitation_sent)
     {
@@ -166,9 +112,6 @@ public class Agent {
      *
      * @return the avatar_url
      */
-    /*
-     * TO get the Avatar_url
-     */
     public String getAvatar_url ()
     {
         return avatar_url;
@@ -178,9 +121,6 @@ public class Agent {
      * Sets the avatar_url.
      *
      * @param avatar_url the new avatar_url
-     */
-    /*
-     * TO set the Avatar_url
      */
     public void setAvatar_url (String avatar_url)
     {
@@ -194,9 +134,6 @@ public class Agent {
      *
      * @return the color
      */
-    /*
-     * TO get the Color
-     */
     public String getColor ()
     {
         return color;
@@ -207,9 +144,6 @@ public class Agent {
      * Sets the color.
      *
      * @param color the new color
-     */
-    /*
-     * TO set the Color
      */
     public void setColor (String color)
     {
@@ -222,9 +156,6 @@ public class Agent {
      *
      * @return the email
      */
-    /*
-     * TO get the Email
-     */
     public String getEmail ()
     {
         return email;
@@ -235,9 +166,6 @@ public class Agent {
      * Sets the email.
      *
      * @param email the new email
-     */
-    /*
-     * TO set the Email
      */
     public void setEmail (String email)
     {
@@ -250,9 +178,6 @@ public class Agent {
      *
      * @return the name
      */
-    /*
-     * TO get the Name
-     */
     public String getName ()
     {
         return name;
@@ -263,9 +188,6 @@ public class Agent {
      * Sets the name.
      *
      * @param name the new name
-     */
-    /*
-     * TO set the Name
      */
     public void setName (String name)
     {
@@ -278,9 +200,6 @@ public class Agent {
      *
      * @return the role
      */
-    /*
-     * TO get the Role
-     */
     public String getRole ()
     {
         return role;
@@ -291,9 +210,6 @@ public class Agent {
      * Sets the role.
      *
      * @param role the new role
-     */
-    /*
-     * TO set the Role
      */
     public void setRole (String role)
     {
@@ -306,9 +222,6 @@ public class Agent {
      *
      * @return the user_url
      */
-    /*
-     * TO get the user_url
-     */
     public String getUser_url ()
     {
         return user_url;
@@ -319,9 +232,6 @@ public class Agent {
      * Sets the user_url.
      *
      * @param user_url the new user_url
-     */
-    /*
-     * TO set the user_url
      */
     public void setUser_url (String user_url)
     {
@@ -334,9 +244,6 @@ public class Agent {
      *
      * @return the type
      */
-    /*
-     * TO get the Type
-     */
     public String getType ()
     {
         return type;
@@ -347,9 +254,6 @@ public class Agent {
      * Sets the type.
      *
      * @param type the new type
-     */
-    /*
-     * TO set the Type
      */
     public void setType (String type)
     {
@@ -362,9 +266,6 @@ public class Agent {
      *
      * @return the marketing_opt_out
      */
-    /*
-     * TO get the Marketing_opt_out
-     */
     public String getMarketing_opt_out ()
     {
         return marketing_opt_out;
@@ -376,9 +277,6 @@ public class Agent {
      *
      * @param marketing_opt_out the new marketing_opt_out
      */
-    /*
-     * TO set the Marketing_opt_out
-     */
     public void setMarketing_opt_out (String marketing_opt_out)
     {
         this.marketing_opt_out = marketing_opt_out;
@@ -387,9 +285,6 @@ public class Agent {
     
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
-     */
-    /*
-     * This Is Override For Abstract Method String
      */
     @Override
     public String toString()

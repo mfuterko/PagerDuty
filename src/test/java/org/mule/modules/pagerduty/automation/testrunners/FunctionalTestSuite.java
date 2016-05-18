@@ -9,16 +9,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.modules.pagerduty.PagerDutyConnector;
-import org.mule.modules.pagerduty.automation.functional.AddEntityTestCases;
-import org.mule.modules.pagerduty.automation.functional.CreateContactMethodTestCases;
 import org.mule.modules.pagerduty.automation.functional.CreateEmailFilterTestCases;
 import org.mule.modules.pagerduty.automation.functional.CreateNotificationRulesTestCases;
 import org.mule.modules.pagerduty.automation.functional.CreateTeamTestCases;
-import org.mule.modules.pagerduty.automation.functional.CreateUserTestCases;
-import org.mule.modules.pagerduty.automation.functional.DeleteContactMethodTestCases;
-import org.mule.modules.pagerduty.automation.functional.DeleteEmailFilterTestCases;
-import org.mule.modules.pagerduty.automation.functional.DeleteEscalationPolicyByIdTestCases;
-import org.mule.modules.pagerduty.automation.functional.DeleteEscalationRuleByPolicyTestCases;
+import org.mule.modules.pagerduty.automation.functional.DeleteTeamTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetAlertsPerTimeTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetEscalationPoliciesTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetIncidentsByIdTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetLogEntriesTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetServicesTestCases;
+import org.mule.modules.pagerduty.automation.functional.GetTeamsTestCases;
+import org.mule.modules.pagerduty.automation.functional.PostServiceTestCases;
+import org.mule.modules.pagerduty.automation.functional.UpdateServiceByIdTestCases;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
 //@RunWith(Categories.class)
@@ -31,10 +33,7 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 //})
 
 @RunWith(Suite.class)
-@SuiteClasses({ AddEntityTestCases.class, CreateContactMethodTestCases.class,CreateEmailFilterTestCases.class,
-	CreateNotificationRulesTestCases.class,CreateTeamTestCases.class,CreateUserTestCases.class,
-	DeleteContactMethodTestCases.class,DeleteEmailFilterTestCases.class,DeleteEscalationPolicyByIdTestCases.class,
-	DeleteEscalationRuleByPolicyTestCases.class})
+@SuiteClasses({ GetTeamsTestCases.class, GetServicesTestCases.class, CreateEmailFilterTestCases.class, CreateNotificationRulesTestCases.class,CreateTeamTestCases.class, GetAlertsPerTimeTestCases.class, DeleteTeamTestCases.class, PostServiceTestCases.class, UpdateServiceByIdTestCases.class,GetEscalationPoliciesTestCases.class, GetIncidentsByIdTestCases.class, GetLogEntriesTestCases.class})
 
 public class FunctionalTestSuite {
 	

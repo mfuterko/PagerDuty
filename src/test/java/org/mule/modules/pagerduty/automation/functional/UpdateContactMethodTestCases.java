@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.ContactMethodPutRequest;
 import org.mule.modules.pagerduty.bean.ContactMethodPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateContactMethodTestCases.
+ */
 public class UpdateContactMethodTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new update contact method test cases.
+	 */
 	public UpdateContactMethodTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test update contact method.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testUpdateContactMethod() throws Exception 

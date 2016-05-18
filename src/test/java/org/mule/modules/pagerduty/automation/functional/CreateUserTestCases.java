@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.UserPostRequest;
 import org.mule.modules.pagerduty.bean.UserPostResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreateUserTestCases.
+ */
 public class CreateUserTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new creates the user test cases.
+	 */
 	public CreateUserTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test create user.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testCreateUser() throws Exception 
@@ -27,7 +40,7 @@ public class CreateUserTestCases extends PagerDutyAbstractTestCases{
 		
 		UserPostResponse userPostResponse = getConnector().createUser(request);
 		assertNotNull(userPostResponse);
-	    assertEquals("200", userPostResponse.getStatusCode());
+	    assertEquals("201", userPostResponse.getStatusCode());
 	}
 
 }

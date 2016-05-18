@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.ContactMethodPostRequest;
 import org.mule.modules.pagerduty.bean.ContactMethodPostResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreateContactMethodTestCases.
+ */
 public class CreateContactMethodTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new creates the contact method test cases.
+	 */
 	public CreateContactMethodTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test create contact method.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testCreateContactMethod() throws Exception 
@@ -31,7 +44,7 @@ public class CreateContactMethodTestCases extends PagerDutyAbstractTestCases{
 		request.setType("phone");
 		ContactMethodPostResponse contactMethodPostResponse = getConnector().createContactMethod(userId,request);
 		assertNotNull(contactMethodPostResponse);
-	    assertEquals("200", contactMethodPostResponse.getStatusCode());
+	    assertEquals("201", contactMethodPostResponse.getStatusCode());
 	}
 
 }

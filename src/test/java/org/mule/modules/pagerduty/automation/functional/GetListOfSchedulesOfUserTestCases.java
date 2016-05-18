@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.UsersListByScheduleGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetListOfSchedulesOfUserTestCases.
+ */
 public class GetListOfSchedulesOfUserTestCases extends PagerDutyAbstractTestCases{
 
+	/**
+	 * Instantiates a new gets the list of schedules of user test cases.
+	 */
 	public GetListOfSchedulesOfUserTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test get list of schedules of user.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testGetListOfSchedulesOfUser() throws Exception 

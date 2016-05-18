@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.IncidentLogEntriesGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetIncidentLogEntriesTestCases.
+ */
 public class GetIncidentLogEntriesTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the incident log entries test cases.
+	 */
 	public GetIncidentLogEntriesTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+    
+    /**
+     * Test get incident log entries.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @Category({FunctionalTestSuite.class})
     public void testGetIncidentLogEntries() throws Exception 

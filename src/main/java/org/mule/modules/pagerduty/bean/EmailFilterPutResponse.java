@@ -3,20 +3,38 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class EmailFilterPutResponse.
+ */
 public class EmailFilterPutResponse extends StatusResponse {
 	
+	/** The email_filter. */
 	private Email_filter email_filter;
 
+    /**
+     * Gets the email_filter.
+     *
+     * @return the email_filter
+     */
     public Email_filter getEmail_filter ()
     {
         return email_filter;
     }
 
+    /**
+     * Sets the email_filter.
+     *
+     * @param email_filter the new email_filter
+     */
     public void setEmail_filter (Email_filter email_filter)
     {
         this.email_filter = email_filter;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString()
     {

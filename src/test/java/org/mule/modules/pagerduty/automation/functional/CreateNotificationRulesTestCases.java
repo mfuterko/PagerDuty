@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.NotifcationRulePostResponse;
 import org.mule.modules.pagerduty.bean.NotificationRulePostRequest;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreateNotificationRulesTestCases.
+ */
 public class CreateNotificationRulesTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new creates the notification rules test cases.
+	 */
 	public CreateNotificationRulesTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test create notification rules.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testCreateNotificationRules() throws Exception 
@@ -28,7 +41,7 @@ public class CreateNotificationRulesTestCases extends PagerDutyAbstractTestCases
 		
 		NotifcationRulePostResponse notifcationRulePostResponse = getConnector().createNotificationRules(userId,request);
 		assertNotNull(notifcationRulePostResponse);
-	    assertEquals("200", notifcationRulePostResponse.getStatusCode() );
+	    assertEquals("201", notifcationRulePostResponse.getStatusCode() );
 	}
 
 }

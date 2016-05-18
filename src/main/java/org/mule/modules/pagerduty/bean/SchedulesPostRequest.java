@@ -3,9 +3,16 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SchedulesPostRequest.
+ */
 public class SchedulesPostRequest {
 	
+	/** The overflow. */
 	boolean overflow;
+	
+	/** The schedule. */
 	Schedule schedule;
 	
 

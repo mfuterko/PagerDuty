@@ -12,13 +12,26 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetEsclationRuleByPolicyTestCases.
+ */
 public class GetEsclationRuleByPolicyTestCases extends PagerDutyAbstractTestCases {
 	
+	/**
+	 * Instantiates a new gets the esclation rule by policy test cases.
+	 */
 	public GetEsclationRuleByPolicyTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
-	    @Test
+	    
+    	/**
+    	 * Test get esclation rule by policy.
+    	 *
+    	 * @throws Exception the exception
+    	 */
+    	@Test
 	    @Category({FunctionalTestSuite.class})
 	    public void testGetEsclationRuleByPolicy() throws Exception 
 	    {

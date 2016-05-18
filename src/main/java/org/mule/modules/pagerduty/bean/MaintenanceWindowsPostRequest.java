@@ -3,6 +3,9 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+/**
+ * The Class MaintenanceWindowsPostRequest.
+ */
 public class MaintenanceWindowsPostRequest {
 
 }

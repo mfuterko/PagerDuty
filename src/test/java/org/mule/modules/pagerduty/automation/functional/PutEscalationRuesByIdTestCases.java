@@ -13,12 +13,25 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPutRequest;
 import org.mule.modules.pagerduty.bean.EscalationRulesByIdPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PutEscalationRuesByIdTestCases.
+ */
 public class PutEscalationRuesByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new put escalation rues by id test cases.
+	 */
 	public PutEscalationRuesByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test put escalation rues by id.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testPutEscalationRuesById() throws Exception {

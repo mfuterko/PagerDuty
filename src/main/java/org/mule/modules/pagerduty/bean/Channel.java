@@ -14,18 +14,12 @@ public class Channel {
 	
 	
 	/** The type. */
-	/*
-     * This type : For channel type 
-     */
 	private String type;
 
-	/**
-	 * Gets the type.
-	 *
-	 * @return the type
-	 */
-	/*
-     * TO get the Type
+    /**
+     * Gets the type.
+     *
+     * @return the type
      */
     public String getType ()
     {
@@ -38,9 +32,6 @@ public class Channel {
      *
      * @param type the new type
      */
-    /*
-     * TO set the Type
-     */
     public void setType (String type)
     {
         this.type = type;
@@ -49,9 +40,6 @@ public class Channel {
     
     /* (non-Javadoc)
      * @see java.lang.Object#toString()
-     */
-    /*
-     * This Is Override For Abstract Method String
      */
     @Override
     public String toString()

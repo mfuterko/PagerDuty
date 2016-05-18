@@ -19,6 +19,11 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 public class EsclationRuleByPolicyTestCases extends PagerDutyAbstractTestCases {
 	
 	
+    /**
+     * Instantiates a new esclation rule by policy test cases.
+     *
+     * @param connector the connector
+     */
     public EsclationRuleByPolicyTestCases(Class<PagerDutyConnector> connector) {
 		super(connector);
 		// TODO Auto-generated constructor stub

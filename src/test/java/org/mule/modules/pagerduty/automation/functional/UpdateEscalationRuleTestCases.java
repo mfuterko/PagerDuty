@@ -13,13 +13,26 @@ import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutRequest;
 import org.mule.modules.pagerduty.bean.EscalationRuleByPolicyPutResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UpdateEscalationRuleTestCases.
+ */
 public class UpdateEscalationRuleTestCases extends PagerDutyAbstractTestCases {
 	
+	/**
+	 * Instantiates a new update escalation rule test cases.
+	 */
 	public UpdateEscalationRuleTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
-	    @Test
+	    
+    	/**
+    	 * Test update escalation rule.
+    	 *
+    	 * @throws Exception the exception
+    	 */
+    	@Test
 	    @Category({FunctionalTestSuite.class})
 	    public void testUpdateEscalationRule() throws Exception 
 	    {

@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.UsersGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetUsersTestCases.
+ */
 public class GetUsersTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the users test cases.
+	 */
 	public GetUsersTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test get users.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testGetUsers() throws Exception 

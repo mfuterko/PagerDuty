@@ -5,22 +5,40 @@ package org.mule.modules.pagerduty.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SchedulePreviewPostResponse.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SchedulePreviewPostResponse extends StatusResponse {
 	
-	 private Schedule schedule;
+	 /** The schedule. */
+ 	private Schedule schedule;
 
-	    public Schedule getSchedule ()
+	    /**
+    	 * Gets the schedule.
+    	 *
+    	 * @return the schedule
+    	 */
+    	public Schedule getSchedule ()
 	    {
 	        return schedule;
 	    }
 
-	    public void setSchedule (Schedule schedule)
+	    /**
+    	 * Sets the schedule.
+    	 *
+    	 * @param schedule the new schedule
+    	 */
+    	public void setSchedule (Schedule schedule)
 	    {
 	        this.schedule = schedule;
 	    }
 
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see java.lang.Object#toString()
+    	 */
+    	@Override
 	    public String toString()
 	    {
 	        return "ClassPojo [schedule = "+schedule+"]";

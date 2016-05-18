@@ -3,202 +3,200 @@
  */
 package org.mule.modules.pagerduty.bean;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Contact_method.
+ */
 public class Contact_method {
 	
-	
-	/*
-     * This id : For id 
-     */
+	/** The id. */
 	private String id;
 
 
-	/*
-     * This phone_number : For phone_number 
-     */
+	/** The phone_number. */
 	private String phone_number;
 
-    
-    /*
-     * This address : For address 
-     */
+    /** The address. */
     private String address;
 
-    
-    /*
-     * This user_id : For user_id 
-     */
+    /** The user_id. */
     private String user_id;
 
-    /*
-     * This label : For contact label 
-     */
+    /** The label. */
     private String label;
 
-    
-    /*
-     * This type : For Contact type 
-     */
+    /** The type. */
     private String type;
-
-    /*
-     * This blacklisted : For blacklisted 
-     */
+    
+    /** The blacklisted. */
     private String blacklisted;
 
     
-    /*
-     * This country_code : For country_code 
-     */
+    /** The country_code. */
     private String country_code;
 
-    
-    /*
-     * TO get the Id
+    /**
+     * Gets the id.
+     *
+     * @return the id
      */
     public String getId ()
     {
         return id;
     }
 
-    
-    /*
-     * TO set the Id
+    /**
+     * Sets the id.
+     *
+     * @param id the new id
      */
     public void setId (String id)
     {
         this.id = id;
     }
 
-    
-    /*
-     * TO get the Phone_number
+    /**
+     * Gets the phone_number.
+     *
+     * @return the phone_number
      */
     public String getPhone_number ()
     {
         return phone_number;
     }
 
-    
-    /*
-     * TO set the Phone_number
+    /**
+     * Sets the phone_number.
+     *
+     * @param phone_number the new phone_number
      */
     public void setPhone_number (String phone_number)
     {
         this.phone_number = phone_number;
     }
 
-    
-    /*
-     * TO get the Address
+    /**
+     * Gets the address.
+     *
+     * @return the address
      */
     public String getAddress ()
     {
         return address;
     }
 
-    
-    /*
-     * TO set the Address
+    /**
+     * Sets the address.
+     *
+     * @param address the new address
      */
     public void setAddress (String address)
     {
         this.address = address;
     }
 
-    
-    
-    /*
-     * TO get the User_id
+    /**
+     * Gets the user_id.
+     *
+     * @return the user_id
      */
     public String getUser_id ()
     {
         return user_id;
     }
 
-    
-    /*
-     * TO set the User_id
+    /**
+     * Sets the user_id.
+     *
+     * @param user_id the new user_id
      */
     public void setUser_id (String user_id)
     {
         this.user_id = user_id;
     }
 
-    
-    /*
-     * TO get the Label
+    /**
+     * Gets the label.
+     *
+     * @return the label
      */
     public String getLabel ()
     {
         return label;
     }
 
-    
-    /*
-     * TO set the Label
+    /**
+     * Sets the label.
+     *
+     * @param label the new label
      */
     public void setLabel (String label)
     {
         this.label = label;
     }
 
-    
-    /*
-     * TO get the Type
+    /**
+     * Gets the type.
+     *
+     * @return the type
      */
     public String getType ()
     {
         return type;
     }
 
-    
-    /*
-     * TO set the Type
+    /**
+     * Sets the type.
+     *
+     * @param type the new type
      */
     public void setType (String type)
     {
         this.type = type;
     }
 
-    
-    /*
-     * TO get the Blacklisted
+    /**
+     * Gets the blacklisted.
+     *
+     * @return the blacklisted
      */
     public String getBlacklisted ()
     {
         return blacklisted;
     }
 
-    
-    /*
-     * TO set the Blacklisted
+    /**
+     * Sets the blacklisted.
+     *
+     * @param blacklisted the new blacklisted
      */
     public void setBlacklisted (String blacklisted)
     {
         this.blacklisted = blacklisted;
     }
 
-    
-    /*
-     * TO get the Country_code
+    /**
+     * Gets the country_code.
+     *
+     * @return the country_code
      */
     public String getCountry_code ()
     {
         return country_code;
     }
 
-    
-    /*
-     * TO set the Country_code
+    /**
+     * Sets the country_code.
+     *
+     * @param country_code the new country_code
      */
     public void setCountry_code (String country_code)
     {
         this.country_code = country_code;
     }
 
-    
-    /*
-     * This Is Override For Abstract Method String
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
      */
     @Override
     public String toString()

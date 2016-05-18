@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.EscalationPoliciesGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetEscalationPoliciesTestCases.
+ */
 public class GetEscalationPoliciesTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the escalation policies test cases.
+	 */
 	public GetEscalationPoliciesTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test escalation policies.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testEscalationPolicies() throws Exception {
@@ -25,7 +38,7 @@ public class GetEscalationPoliciesTestCases extends PagerDutyAbstractTestCases{
 		String query = "";
 		String teams = "";
 		String include = "";
-		EscalationPoliciesGetResponse escalationPoliciesGetResponse = getConnector().getEscalationPolicies(query,teams,include);
+		EscalationPoliciesGetResponse escalationPoliciesGetResponse = getConnector().getEscalationPolicies(null,null,null);
 		 assertNotNull(escalationPoliciesGetResponse);
 	     assertEquals("200", escalationPoliciesGetResponse.getStatusCode());
     }

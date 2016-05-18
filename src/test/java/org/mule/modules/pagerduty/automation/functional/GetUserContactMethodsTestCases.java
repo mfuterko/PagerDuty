@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.UserContactMethodsGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetUserContactMethodsTestCases.
+ */
 public class GetUserContactMethodsTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the user contact methods test cases.
+	 */
 	public GetUserContactMethodsTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test get user contact methods.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testGetUserContactMethods() throws Exception 

@@ -9,6 +9,10 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.IncidentsGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetIncidentsTestCases.
+ */
 public class GetIncidentsTestCases extends PagerDutyAbstractTestCases {
 	
 	/**
@@ -19,7 +23,13 @@ public class GetIncidentsTestCases extends PagerDutyAbstractTestCases {
 		{
 			super(PagerDutyConnector.class);
 		}
-	    @Test
+	    
+    	/**
+    	 * Test get incidents.
+    	 *
+    	 * @throws Exception the exception
+    	 */
+    	@Test
 	    @Category({FunctionalTestSuite.class})
 	    public void testGetIncidents() throws Exception 
 	    {

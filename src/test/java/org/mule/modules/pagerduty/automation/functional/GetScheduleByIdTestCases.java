@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.ScheduleByIdGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetScheduleByIdTestCases.
+ */
 public class GetScheduleByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the schedule by id test cases.
+	 */
 	public GetScheduleByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test get schedule by id.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testGetScheduleById() throws Exception 

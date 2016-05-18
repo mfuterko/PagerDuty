@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.IncidentNotesGetResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetIncidentsNotesByIdTestCases.
+ */
 public class GetIncidentsNotesByIdTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new gets the incidents notes by id test cases.
+	 */
 	public GetIncidentsNotesByIdTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+    
+    /**
+     * Test get incidents notes by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     @Category({FunctionalTestSuite.class})
     public void testGetIncidentsNotesById() throws Exception 

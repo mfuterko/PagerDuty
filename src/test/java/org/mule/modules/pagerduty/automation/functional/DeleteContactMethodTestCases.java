@@ -12,12 +12,25 @@ import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.testrunners.FunctionalTestSuite;
 import org.mule.modules.pagerduty.bean.StatusResponse;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DeleteContactMethodTestCases.
+ */
 public class DeleteContactMethodTestCases extends PagerDutyAbstractTestCases{
 	
+	/**
+	 * Instantiates a new delete contact method test cases.
+	 */
 	public DeleteContactMethodTestCases()
 	{
 		super(PagerDutyConnector.class);
 	}
+	
+	/**
+	 * Test delete contact method.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
     @Category({FunctionalTestSuite.class})
     public void testDeleteContactMethod() throws Exception 
