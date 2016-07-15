@@ -19,8 +19,8 @@ public class GreetTestCases extends PagerDutyAbstractTestCases {
      *
      * @param connector the connector
      */
-    public GreetTestCases(Class<PagerDutyConnector> connector) {
-		super(connector);
+    public GreetTestCases() {
+		super(PagerDutyConnector.class);
 		// TODO Auto-generated constructor stub
 	}
 

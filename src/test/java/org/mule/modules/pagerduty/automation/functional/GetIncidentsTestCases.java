@@ -15,9 +15,6 @@ import org.mule.modules.pagerduty.bean.IncidentsGetResponse;
  */
 public class GetIncidentsTestCases extends PagerDutyAbstractTestCases {
 	
-	/**
-	 * Copyright � 1992-2016 Cisco, Inc.
-	 */
 	
 		public GetIncidentsTestCases()
 		{

@@ -12,7 +12,29 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel {
 	
+	/** The summary. */
+	private String summary;
 	
+	/**
+	 * Gets the summary.
+	 *
+	 * @return the summary
+	 */
+	public String getSummary() {
+		return summary;
+	}
+
+
+	/**
+	 * Sets the summary.
+	 *
+	 * @param summary the new summary
+	 */
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+
 	/** The type. */
 	private String type;
 

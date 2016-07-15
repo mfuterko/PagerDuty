@@ -42,11 +42,6 @@ public class GetLogEntriesTestCases extends PagerDutyAbstractTestCases{
     @Category({FunctionalTestSuite.class})
     public void testGetLogEntries() throws Exception 
     {
-    	String timeZone =  getTimeZone();
-    	String since = getSince();
-    	String until =  getUntil();
-    	String isOverview = getOverview();
-    	String include = getInclude();
     	LogEntriesGetResponse logEntriesGetResponse = getConnector().getLogEntries(null,null,null, null, null);
     	assertNotNull(logEntriesGetResponse);
     	if(logEntriesGetResponse != null)

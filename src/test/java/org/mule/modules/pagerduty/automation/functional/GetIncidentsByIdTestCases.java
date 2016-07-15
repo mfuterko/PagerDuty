@@ -14,6 +14,7 @@ import org.mule.modules.pagerduty.bean.IncidentByIdGetResponse;
 
 // TODO: Auto-generated Javadoc
 /**
+ * 
  * The Class GetIncidentsByIdTestCases.
  */
 public class GetIncidentsByIdTestCases extends PagerDutyAbstractTestCases{
@@ -35,7 +36,7 @@ public class GetIncidentsByIdTestCases extends PagerDutyAbstractTestCases{
     @Category({FunctionalTestSuite.class})
     public void testGetIncidentsById() throws Exception 
     {
-    	String id = "1";// "200470a147564f088f3eeefa99f6d3bb";
+    	String id = "P4Z4PGO";
     	IncidentByIdGetResponse incidentByIdGetResponse = getConnector().getIncidentsById(id);
     	assertNotNull(incidentByIdGetResponse);
 	     assertEquals("200", incidentByIdGetResponse.getStatusCode() );

@@ -39,7 +39,7 @@ public class GetUsersTestCases extends PagerDutyAbstractTestCases{
 		String include = getInclude();
 		
 		UsersGetResponse usersGetResponse = getConnector().getUsers(query,include);
-		
+		System.out.println("Users active count"+usersGetResponse.getActive_account_users());
 		assertNotNull(usersGetResponse);
 	    assertEquals("200", usersGetResponse.getStatusCode());
 	}

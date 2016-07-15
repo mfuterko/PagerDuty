@@ -6,6 +6,8 @@ package org.mule.modules.pagerduty.automation.functional;
 
 import org.junit.Before;
 import org.mule.modules.pagerduty.PagerDutyConnector;
+import org.mule.modules.pagerduty.bean.Incidents;
+import org.mule.modules.pagerduty.bean.IncidentsPutRequest;
 import org.mule.tools.devkit.ctf.junit.AbstractTestCase;
 import org.mule.tools.devkit.ctf.mockup.ConnectorDispatcher;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
@@ -97,7 +99,7 @@ public abstract class PagerDutyAbstractTestCases  extends AbstractTestCase<Pager
 	 * @return the id
 	 */
 	public String getId(){
-		return null;
+		return "PXN5V5V";
 	}
 	
 	/**
@@ -177,7 +179,7 @@ public abstract class PagerDutyAbstractTestCases  extends AbstractTestCase<Pager
 	 */
 	public String getSince()
 	{
-		return null;
+		return "2016-03-06";
 	}
 	
 	/**
@@ -187,7 +189,7 @@ public abstract class PagerDutyAbstractTestCases  extends AbstractTestCase<Pager
 	 */
 	public String getUntil()
 	{
-		return null;
+		return "2016-06-06";
 	}
 	
 	/**

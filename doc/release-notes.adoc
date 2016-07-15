@@ -1,0 +1,76 @@
+
+= PagerDuty Connector Release Notes
+////
+[<System_Name>: PagerDuty]
+////
+:keywords: PagerDuty
+
+
+The PagerDuty connector facilitates connections between Mule integration and PagerDuty applications. The 
+
+*Guide:* <Connector_Guide_Link>
+////
+Points to the docs.mulesoft pages for documentation on the functional aspects of the connector. e.g.: link:/mule-user-guide/v/3.7/microsoft-sharepoint-2013-connector[Microsoft SharePoint 2013 Connector]
+////
+
+== Version 1.0 - 1 January 2016
+////
+<Connector_Version> : Describes the connector version, such as “V2013”, “V4.0”, “V4.0.1-HF2” or whatever used for release]
+<Release_date> : The date on which the connector is released (not when the notes are written, mind you)
+////
+=== Contents
+
+- Compatibility
+- Features
+- Fixed in this Release
+- Known Issues
+- Support Resources
+
+=== Compatibility
+
+[width="100%", cols=",", options="header"]
+|===
+|Software |Version
+|Mule Runtime |3.7.0
+|PagerDuty |1.0
+|===
+
+
+
+
+
+=== Features
+
+. Version 1.0 Supported Operations
+The PagerDuty Connector 1.0 allows you to perform the following operations:
+
+PagerDuty Connector Operations +
+
+1. Get Alerts +
+2. Get Incidents +
+3. Get Incidents by Id +
+4. Get ServicesList +
+5. Get Service Details +
+6. Post Service +
+7. Get Users +
+8. Get UserDetails +
+9. Get LogEntries  +
+
+
+
+=== Fixed in this Release
+Version 1.0 Fixed in this Release
+There are no bug fixes in this release.
+
+
+=== Known Issues
+
+Version 1.0 Known Issues
+There are no reported issues that are unresolved in this release.
+
+=== Support Resources
+
+- Learn how to link:/mule-user-guide/v/3.7/installing-connectors[Install Anypoint Connectors] using Anypoint Exchange.
+- Access MuleSoft’s MuleForge link:http://forum.mulesoft.org/mulesoft[Forum] to pose questions and get help from Mule’s broad community of users.
+- To access MuleSoft’s expert support team, link:http://www.mulesoft.com/mule-esb-subscription[subscribe] to Mule ESB Enterprise and log in to MuleSoft’s link:http://www.mulesoft.com/support-login[Customer Portal].
+
