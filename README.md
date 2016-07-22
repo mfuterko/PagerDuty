@@ -8,7 +8,7 @@
 
 ## Author
 : 
-PagerDuty Inc.
+Cisco Inc.
 
 ## Supported Mule runtime versions
 :
@@ -22,9 +22,9 @@ PagerDuty Version 1.0 and above.
 Example:PagerDuty
 ## Installation 
 
-You can access the full documentation <https://github.com/surender-eidiko/PagerDuty-connector/blob/master/doc/user-manual.adoc>.
+You can access the full documentation <https://github.com/surender-eidiko/PagerDuty/blob/master/doc/user-manual.adoc>.
 
 ## Reporting Issues
 
 
-We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/surender-eidiko/PagerDuty-connector/issues
+We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/surender-eidiko/PagerDuty/issues
