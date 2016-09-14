@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.mule.modules.pagerduty.PagerDutyConnector;
 import org.mule.modules.pagerduty.automation.functional.AddEntityTestCases;
-import org.mule.modules.pagerduty.automation.functional.GetAlertsTestCase;
+import org.mule.modules.pagerduty.automation.functional.FetchMetaDataKeyTestCases;
+import org.mule.modules.pagerduty.automation.functional.FetchMetaDataTestCases;
 import org.mule.modules.pagerduty.automation.functional.GetIncidentsByIdTestCases;
 import org.mule.modules.pagerduty.automation.functional.GetIncidentsTestCases;
 import org.mule.modules.pagerduty.automation.functional.GetLogEntriesTestCases;
@@ -18,8 +19,6 @@ import org.mule.modules.pagerduty.automation.functional.GetServiceDetailsByIdTes
 import org.mule.modules.pagerduty.automation.functional.GetServicesTestCases;
 import org.mule.modules.pagerduty.automation.functional.GetUserDetailsTestCases;
 import org.mule.modules.pagerduty.automation.functional.GetUsersTestCases;
-import org.mule.modules.pagerduty.automation.functional.GreetTestCases;
-import org.mule.modules.pagerduty.automation.functional.PagerDutyAbstractTestCases;
 import org.mule.modules.pagerduty.automation.functional.PostServiceTestCases;
 import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
@@ -34,14 +33,13 @@ import org.mule.tools.devkit.ctf.mockup.ConnectorTestContext;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AddEntityTestCases.class,
-	GetAlertsTestCase.class,
 	GetIncidentsByIdTestCases.class,
 	GetIncidentsTestCases.class,
 	GetLogEntriesTestCases.class,
 	GetServiceDetailsByIdTestCase.class,
 	GetServicesTestCases.class,
 	GetUserDetailsTestCases.class,
-	GetUsersTestCases.class,
+	GetUsersTestCases.class,FetchMetaDataKeyTestCases.class,FetchMetaDataTestCases.class,
 	PostServiceTestCases.class})
 
 public class FunctionalTestSuite {

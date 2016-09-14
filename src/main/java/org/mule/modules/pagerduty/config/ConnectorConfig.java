@@ -20,14 +20,14 @@ public class ConnectorConfig {
   /** The url. */
   @Configurable
 	@Optional
-	@Default("https://muleesb.pagerduty.com/api/v1")
-	private String url = "https://muleesb.pagerduty.com/api/v1";
+	@Default("https://eidikosy.pagerduty.com/api/v1")
+	private String url = "https://eidikosy.pagerduty.com/api/v1";
 
   /** The authorization. */
   @Configurable
 	@Optional
 	@RestHeaderParam("Authorization")
-	private String authorization = "Token token=wdnNZa9PseXaWRu2Q8F7";
+	private String authorization = "Token token=mfNYBWka2VbZEfQSi22R";
 
   /**
    * Gets the url.

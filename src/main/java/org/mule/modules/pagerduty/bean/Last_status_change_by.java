@@ -18,6 +18,36 @@ public class Last_status_change_by {
 	    /** The name. */
     	private String name;
 
+        private String summary;
+
+
+        public String getSummary() {
+			return summary;
+		}
+
+		public void setSummary(String summary) {
+			this.summary = summary;
+		}
+
+		public String getSelf() {
+			return self;
+		}
+
+		public void setSelf(String self) {
+			this.self = self;
+		}
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		private String self;
+
+        private String type;
 		/**
 		 * Gets the html_url.
 		 *

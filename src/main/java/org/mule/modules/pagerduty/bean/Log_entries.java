@@ -5,6 +5,87 @@ package org.mule.modules.pagerduty.bean;
  * The Class Log_entries.
  */
 public class Log_entries {
+	private String html_url;
+
+    private String summary;
+    private Teams[] teams;
+
+    private Assignees[] assignees;
+
+    private Service service;
+
+
+    private Event_details event_details;
+
+    public void setEvent_details(Event_details event_details) {
+		this.event_details = event_details;
+	}
+
+	public String getHtml_url() {
+		return html_url;
+	}
+
+	public void setHtml_url(String html_url) {
+		this.html_url = html_url;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public Teams[] getTeams() {
+		return teams;
+	}
+
+	public void setTeams(Teams[] teams) {
+		this.teams = teams;
+	}
+
+	public Assignees[] getAssignees() {
+		return assignees;
+	}
+
+	public void setAssignees(Assignees[] assignees) {
+		this.assignees = assignees;
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
+	}
+
+
+
+
+	public String getSelf() {
+		return self;
+	}
+
+	public void setSelf(String self) {
+		this.self = self;
+	}
+
+	public Incident getIncident() {
+		return incident;
+	}
+
+	public void setIncident(Incident incident) {
+		this.incident = incident;
+	}
+
+	private String self;
+
+
+
+
+    private Incident incident;
 	 
  	/** The id. */
  	private String id;

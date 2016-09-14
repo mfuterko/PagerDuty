@@ -45,7 +45,7 @@ public class GetLogEntriesTestCases extends PagerDutyAbstractTestCases{
     	LogEntriesGetResponse logEntriesGetResponse = getConnector().getLogEntries(null,null,null, null, null);
     	assertNotNull(logEntriesGetResponse);
     	if(logEntriesGetResponse != null)
-    		log.info("Output : "+logEntriesGetResponse);
+    		
 	    assertEquals("200", logEntriesGetResponse.getStatusCode() );
     }
 

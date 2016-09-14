@@ -18,7 +18,7 @@ public class GetServiceDetailsByIdTestCase extends PagerDutyAbstractTestCases {
     @Category({FunctionalTestSuite.class})
     public void testGetServiceDetailsById() throws Exception 
     {
-    	String id = "PYCT7WJ";
+    	String id = "P7U45RI";
     	ServiceDetailsResponse response = getConnector().getServiceDetails(id,null);
     	assertNotNull(response);
 	    assertEquals("200", response.getStatusCode() );

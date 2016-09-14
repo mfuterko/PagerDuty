@@ -36,9 +36,9 @@ public class PostServiceTestCases extends PagerDutyAbstractTestCases {
     public void testPostService() throws Exception 
 	{
 		ServicePostRequest request = new ServicePostRequest();
-		request.setName("Service1");
+		request.setName("Service12");
 		request.setDescription(null);
-		request.setEscalation_policy_id("P9TX7Y7");
+		request.setEscalation_policy_id("PBJ7CBU");
 		request.setType("generic_events_api");
 		request.setVendor_id(null);
 		request.setAcknowledgment_timeout(35);

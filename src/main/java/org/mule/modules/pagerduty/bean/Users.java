@@ -9,153 +9,193 @@ package org.mule.modules.pagerduty.bean;
  */
 public class Users {
 	
-	  private String id;
-
-	    private String billed;
-
-	    private String time_zone;
-
-	    private String invitation_sent;
+	 private String summary;
 
 	    private String avatar_url;
 
-	    private String color;
+	    private String self;
+
+	    private String type;
+
+	    private String html_url;
+
+	    private String id;
+
+	    private Teams[] teams;
+
+	    private String time_zone;
+
+	    private String billed;
+
+	    private String invitation_sent;
 
 	    private String email;
 
-	    private String job_title;
+	    private String color;
+
+	    private String description;
+
+	    private Contact_methods[] contact_methods;
 
 	    private String name;
 
-	    private String role;
+	    private String job_title;
 
-	    private String user_url;
+	    public String getSummary() {
+			return summary;
+		}
 
-	    private String marketing_opt_out;
+		public void setSummary(String summary) {
+			this.summary = summary;
+		}
 
-	    public String getId ()
-	    {
-	        return id;
-	    }
+		public String getAvatar_url() {
+			return avatar_url;
+		}
 
-	    public void setId (String id)
-	    {
-	        this.id = id;
-	    }
+		public void setAvatar_url(String avatar_url) {
+			this.avatar_url = avatar_url;
+		}
 
-	    public String getBilled ()
-	    {
-	        return billed;
-	    }
+		public String getSelf() {
+			return self;
+		}
 
-	    public void setBilled (String billed)
-	    {
-	        this.billed = billed;
-	    }
+		public void setSelf(String self) {
+			this.self = self;
+		}
 
-	    public String getTime_zone ()
-	    {
-	        return time_zone;
-	    }
+		public String getType() {
+			return type;
+		}
 
-	    public void setTime_zone (String time_zone)
-	    {
-	        this.time_zone = time_zone;
-	    }
+		public void setType(String type) {
+			this.type = type;
+		}
 
-	    public String getInvitation_sent ()
-	    {
-	        return invitation_sent;
-	    }
+		public String getHtml_url() {
+			return html_url;
+		}
 
-	    public void setInvitation_sent (String invitation_sent)
-	    {
-	        this.invitation_sent = invitation_sent;
-	    }
+		public void setHtml_url(String html_url) {
+			this.html_url = html_url;
+		}
 
-	    public String getAvatar_url ()
-	    {
-	        return avatar_url;
-	    }
+		public String getId() {
+			return id;
+		}
 
-	    public void setAvatar_url (String avatar_url)
-	    {
-	        this.avatar_url = avatar_url;
-	    }
+		public void setId(String id) {
+			this.id = id;
+		}
 
-	    public String getColor ()
-	    {
-	        return color;
-	    }
+		public Teams[] getTeams() {
+			return teams;
+		}
 
-	    public void setColor (String color)
-	    {
-	        this.color = color;
-	    }
+		public void setTeams(Teams[] teams) {
+			this.teams = teams;
+		}
 
-	    public String getEmail ()
-	    {
-	        return email;
-	    }
+		public String getTime_zone() {
+			return time_zone;
+		}
 
-	    public void setEmail (String email)
-	    {
-	        this.email = email;
-	    }
+		public void setTime_zone(String time_zone) {
+			this.time_zone = time_zone;
+		}
 
-	    public String getJob_title ()
-	    {
-	        return job_title;
-	    }
+		public String getBilled() {
+			return billed;
+		}
 
-	    public void setJob_title (String job_title)
-	    {
-	        this.job_title = job_title;
-	    }
+		public void setBilled(String billed) {
+			this.billed = billed;
+		}
 
-	    public String getName ()
-	    {
-	        return name;
-	    }
+		public String getInvitation_sent() {
+			return invitation_sent;
+		}
 
-	    public void setName (String name)
-	    {
-	        this.name = name;
-	    }
+		public void setInvitation_sent(String invitation_sent) {
+			this.invitation_sent = invitation_sent;
+		}
 
-	    public String getRole ()
-	    {
-	        return role;
-	    }
+		public String getEmail() {
+			return email;
+		}
 
-	    public void setRole (String role)
-	    {
-	        this.role = role;
-	    }
+		public void setEmail(String email) {
+			this.email = email;
+		}
 
-	    public String getUser_url ()
-	    {
-	        return user_url;
-	    }
+		public String getColor() {
+			return color;
+		}
 
-	    public void setUser_url (String user_url)
-	    {
-	        this.user_url = user_url;
-	    }
+		public void setColor(String color) {
+			this.color = color;
+		}
 
-	    public String getMarketing_opt_out ()
-	    {
-	        return marketing_opt_out;
-	    }
+		public String getDescription() {
+			return description;
+		}
 
-	    public void setMarketing_opt_out (String marketing_opt_out)
-	    {
-	        this.marketing_opt_out = marketing_opt_out;
-	    }
+		public void setDescription(String description) {
+			this.description = description;
+		}
 
-	    @Override
-	    public String toString()
-	    {
-	        return "ClassPojo [id = "+id+", billed = "+billed+", time_zone = "+time_zone+", invitation_sent = "+invitation_sent+", avatar_url = "+avatar_url+", color = "+color+", email = "+email+", job_title = "+job_title+", name = "+name+", role = "+role+", user_url = "+user_url+", marketing_opt_out = "+marketing_opt_out+"]";
-	    }
+		public Contact_methods[] getContact_methods() {
+			return contact_methods;
+		}
+
+		public void setContact_methods(Contact_methods[] contact_methods) {
+			this.contact_methods = contact_methods;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getJob_title() {
+			return job_title;
+		}
+
+		public void setJob_title(String job_title) {
+			this.job_title = job_title;
+		}
+
+		public String getRole() {
+			return role;
+		}
+
+		public void setRole(String role) {
+			this.role = role;
+		}
+
+		public String[] getCoordinated_incidents() {
+			return coordinated_incidents;
+		}
+
+		public void setCoordinated_incidents(String[] coordinated_incidents) {
+			this.coordinated_incidents = coordinated_incidents;
+		}
+
+		public Notification_rules[] getNotification_rules() {
+			return notification_rules;
+		}
+
+		public void setNotification_rules(Notification_rules[] notification_rules) {
+			this.notification_rules = notification_rules;
+		}
+
+		private String role;
+
+	    private String[] coordinated_incidents;
+
+	    private Notification_rules[] notification_rules;
 }

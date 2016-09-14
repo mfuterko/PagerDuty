@@ -26,8 +26,30 @@ public class UsersGetResponse extends StatusResponse {
 
     /** The offset. */
     private String offset;
+    
+    /** The more. */
+    private String more;
+    
 
     /**
+     * Gets the more.
+     *
+     * @return the more
+     */
+    public String getMore() {
+		return more;
+	}
+
+	/**
+	 * Sets the more.
+	 *
+	 * @param more the new more
+	 */
+	public void setMore(String more) {
+		this.more = more;
+	}
+
+	/**
      * Gets the total.
      *
      * @return the total

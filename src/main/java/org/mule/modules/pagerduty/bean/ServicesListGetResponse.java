@@ -3,55 +3,55 @@ package org.mule.modules.pagerduty.bean;
 public class ServicesListGetResponse extends StatusResponse {
 	private String total;
 
-    private String limit;
+	private String limit;
 
-    private Services[] services;
+	private Services[] services;
+	private String more;
+	public String getMore() {
+		return more;
+	}
 
-    private String offset;
+	public void setMore(String more) {
+		this.more = more;
+	}
 
-    public String getTotal ()
-    {
-        return total;
-    }
+	private String offset;
 
-    public void setTotal (String total)
-    {
-        this.total = total;
-    }
+	public String getTotal() {
+		return total;
+	}
 
-    public String getLimit ()
-    {
-        return limit;
-    }
+	public void setTotal(String total) {
+		this.total = total;
+	}
 
-    public void setLimit (String limit)
-    {
-        this.limit = limit;
-    }
+	public String getLimit() {
+		return limit;
+	}
 
-    public Services[] getServices ()
-    {
-        return services;
-    }
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
 
-    public void setServices (Services[] services)
-    {
-        this.services = services;
-    }
+	public Services[] getServices() {
+		return services;
+	}
 
-    public String getOffset ()
-    {
-        return offset;
-    }
+	public void setServices(Services[] services) {
+		this.services = services;
+	}
 
-    public void setOffset (String offset)
-    {
-        this.offset = offset;
-    }
+	public String getOffset() {
+		return offset;
+	}
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [total = "+total+", limit = "+limit+", services = "+services+", offset = "+offset+"]";
-    }
+	public void setOffset(String offset) {
+		this.offset = offset;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassPojo [total = " + total + ", limit = " + limit
+				+ ", services = " + services + ", offset = " + offset + "]";
+	}
 }

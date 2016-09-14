@@ -11,106 +11,110 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IncidentsGetResponse extends StatusResponse {
-	
-	/** The total. */
+
 	private String total;
 
-    /** The limit. */
-    private String limit;
+	public String getMore() {
+		return more;
+	}
 
-    /** The incidents. */
-    private Incidents[] incidents;
+	public void setMore(String more) {
+		this.more = more;
+	}
+	
+	private String limit;
 
-    /** The offset. */
-    private String offset;
+	private Incidents[] incidents;
 
-    /**
-     * Gets the total.
-     *
-     * @return the total
-     */
-    public String getTotal ()
-    {
-        return total;
-    }
+	private String more;
 
-    /**
-     * Sets the total.
-     *
-     * @param total the new total
-     */
-    public void setTotal (String total)
-    {
-        this.total = total;
-    }
+	private String offset;
 
-    /**
-     * Gets the limit.
-     *
-     * @return the limit
-     */
-    public String getLimit ()
-    {
-        return limit;
-    }
+	/**
+	 * Gets the total.
+	 *
+	 * @return the total
+	 */
+	public String getTotal() {
+		return total;
+	}
 
-    /**
-     * Sets the limit.
-     *
-     * @param limit the new limit
-     */
-    public void setLimit (String limit)
-    {
-        this.limit = limit;
-    }
+	/**
+	 * Sets the total.
+	 *
+	 * @param total
+	 *            the new total
+	 */
+	public void setTotal(String total) {
+		this.total = total;
+	}
 
-    /**
-     * Gets the incidents.
-     *
-     * @return the incidents
-     */
-    public Incidents[] getIncidents ()
-    {
-        return incidents;
-    }
+	/**
+	 * Gets the limit.
+	 *
+	 * @return the limit
+	 */
+	public String getLimit() {
+		return limit;
+	}
 
-    /**
-     * Sets the incidents.
-     *
-     * @param incidents the new incidents
-     */
-    public void setIncidents (Incidents[] incidents)
-    {
-        this.incidents = incidents;
-    }
+	/**
+	 * Sets the limit.
+	 *
+	 * @param limit
+	 *            the new limit
+	 */
+	public void setLimit(String limit) {
+		this.limit = limit;
+	}
 
-    /**
-     * Gets the offset.
-     *
-     * @return the offset
-     */
-    public String getOffset ()
-    {
-        return offset;
-    }
+	/**
+	 * Gets the incidents.
+	 *
+	 * @return the incidents
+	 */
+	public Incidents[] getIncidents() {
+		return incidents;
+	}
 
-    /**
-     * Sets the offset.
-     *
-     * @param offset the new offset
-     */
-    public void setOffset (String offset)
-    {
-        this.offset = offset;
-    }
+	/**
+	 * Sets the incidents.
+	 *
+	 * @param incidents
+	 *            the new incidents
+	 */
+	public void setIncidents(Incidents[] incidents) {
+		this.incidents = incidents;
+	}
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [total = "+total+", limit = "+limit+", incidents = "+incidents+", offset = "+offset+"]";
-    }
+	/**
+	 * Gets the offset.
+	 *
+	 * @return the offset
+	 */
+	public String getOffset() {
+		return offset;
+	}
+
+	/**
+	 * Sets the offset.
+	 *
+	 * @param offset
+	 *            the new offset
+	 */
+	public void setOffset(String offset) {
+		this.offset = offset;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ClassPojo [total = " + total + ", limit = " + limit
+				+ ", incidents = " + incidents + ", offset = " + offset + "]";
+	}
 
 }

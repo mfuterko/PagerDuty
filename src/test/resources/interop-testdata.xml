@@ -11,7 +11,7 @@
         <config name="config">
             <attributes>
                 <attribute name="name" use="required" caption="Name" group="Basic Settings" type="name" javaType="java.lang.String" category="General"></attribute>
-                <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://muleesb.pagerduty.com/api/v1" category="General"></attribute>
+                <attribute name="url" use="optional" caption="Url" group="General" type="string" javaType="java.lang.String" default="https://eidikosy.pagerduty.com/api/v1" category="General"></attribute>
                 <attribute name="authorization" use="optional" caption="Authorization" group="General" type="string" javaType="java.lang.String" category="General"></attribute>
             </attributes>
         </config>

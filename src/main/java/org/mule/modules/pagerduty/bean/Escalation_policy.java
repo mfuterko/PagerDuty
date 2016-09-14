@@ -14,6 +14,42 @@ public class Escalation_policy {
 
     /** The deleted_at. */
     private String deleted_at;
+    private String type;
+    private String summary;
+    private String html_url;
+    private String self;
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+
+	public String getHtml_url() {
+		return html_url;
+	}
+
+	public void setHtml_url(String html_url) {
+		this.html_url = html_url;
+	}
+
+	public String getSelf() {
+		return self;
+	}
+
+	public void setSelf(String self) {
+		this.self = self;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	/**
 	 * Gets the id.

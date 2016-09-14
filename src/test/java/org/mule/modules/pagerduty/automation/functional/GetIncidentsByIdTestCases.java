@@ -36,7 +36,7 @@ public class GetIncidentsByIdTestCases extends PagerDutyAbstractTestCases{
     @Category({FunctionalTestSuite.class})
     public void testGetIncidentsById() throws Exception 
     {
-    	String id = "P4Z4PGO";
+    	String id = "P3IW4FM";
     	IncidentByIdGetResponse incidentByIdGetResponse = getConnector().getIncidentsById(id);
     	assertNotNull(incidentByIdGetResponse);
 	     assertEquals("200", incidentByIdGetResponse.getStatusCode() );
