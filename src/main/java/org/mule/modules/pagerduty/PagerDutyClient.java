@@ -59,7 +59,7 @@ public class PagerDutyClient {
   
 
   
-  public AlertsResponse getAlerts(String sinceDate, String untilDate, String filterType, String time_zone ) {
+  public AlertsResponse getAlerts(String sinceDate, String untilDate, String filterType, String timeZone ) {
     WebResource webResource = getApiResource().path("alerts");
     MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
       queryParams.add("since", sinceDate);
@@ -67,8 +67,8 @@ public class PagerDutyClient {
     if (filterType != null) {
       queryParams.add("filter", filterType);
     }
-    if (time_zone  != null) {
-      queryParams.add("time_zone", time_zone);
+    if (timeZone  != null) {
+      queryParams.add("time_zone", timeZone);
     }
     webResource = webResource.queryParams(queryParams);
     log.info("Hitting... "+webResource.toString());
@@ -101,7 +101,7 @@ public class PagerDutyClient {
 		    queryParams.add("incident_key", incidentKey);
 		}
 		if (service != null) {
-		     queryParams.add("fields", service);
+		     queryParams.add("service", service);
 		}
 		if (teams  != null) {
 		   queryParams.add("status", teams);
@@ -238,24 +238,6 @@ public class PagerDutyClient {
     return buildResponseObject(returnClass, clientResponse);
   }
 
-  private Object putData(Object request, WebResource webResource,
-    Class<?> returnClass) {
-    WebResource.Builder builder = addHeader(webResource);
-    builder.type(MediaType.APPLICATION_JSON);
-    ObjectMapper mapper = new ObjectMapper();
-    String input = convertObjectToString(request, mapper);
-
-    ClientResponse clientResponse = builder
-      .put(ClientResponse.class, input);
-
-    return buildResponseObject(returnClass, clientResponse);
-  }
-
-  private Object deleteData(WebResource webResource) {
-    WebResource.Builder builder = addHeader(webResource);
-    ClientResponse clientResponse = builder.delete(ClientResponse.class);
-    return buildDeleteResponseObject(clientResponse);
-  }
 
   private WebResource.Builder addHeader(WebResource webResource) {
     WebResource.Builder builder = webResource
@@ -265,12 +247,6 @@ public class PagerDutyClient {
     return builder;
   }
 
-  private Object buildDeleteResponseObject(ClientResponse clientResponse) {
-    StatusResponse statusResponse = new StatusResponse();
-    statusResponse
-      .setStatusCode(String.valueOf(clientResponse.getStatus()));
-    return statusResponse;
-  }
 
   private Object buildResponseObject(Class<?> returnClass,
     ClientResponse clientResponse) {
