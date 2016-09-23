@@ -8,7 +8,7 @@
 
 The PagerDuty connector facilitates connections between Mule integration and PagerDuty applications. The 
 
-*Guide:* <Connector_Guide_Link>
+*Guide:* link:/PagerDuty/doc/user-manual.adoc[Link to User Manual]
 ////
 Points to the docs.mulesoft pages for documentation on the functional aspects of the connector. e.g.: link:/mule-user-guide/v/3.7/microsoft-sharepoint-2013-connector[Microsoft SharePoint 2013 Connector]
 ////

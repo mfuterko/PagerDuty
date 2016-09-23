@@ -4,3 +4,30 @@
 <!-- BEGIN_INCLUDE(pager-duty:add-entity) -->
     <pager-duty:add-entity config-ref="" key="id1"/>
 <!-- END_INCLUDE(pager-duty:add-entity) -->
+<!-- BEGIN_INCLUDE(pager-duty:get-alerts) -->
+<pager-duty:get-alerts config-ref="PagerDuty__Configuration1" sinceDate="2016-03-06" untilDate="2016-06-06" doc:name="PagerDuty"/>
+<!-- END_INCLUDE(pager-duty:get-alerts) -->
+<!-- BEGIN_INCLUDE(pager-duty:get-incidents) -->
+<pager-duty:get-incidents config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty"/>
+<!-- END_INCLUDE(pager-duty:get-incidents) -->
+<!-- BEGIN_INCLUDE(pager-duty:get-incidents-by-id) -->
+<pager-duty:get-incidents-by-id config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" id="PHL7VU8"/>
+<!-- END_INCLUDE(pager-duty:get-incidents-by-id) -->
+<!-- BEGIN_INCLUDE(pager-duty:get-log-entries) -->
+ <pager-duty:get-log-entries config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" />
+ <!-- END_INCLUDE(pager-duty:get-log-entries) -->
+ <!-- BEGIN_INCLUDE(pager-duty:get-service-details) -->
+ <pager-duty:get-service-details config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" id="PHL7VU8"/>
+ <!-- END_INCLUDE(pager-duty:get-service-details) -->
+ <!-- BEGIN_INCLUDE(pager-duty:get-services-list) -->
+ <pager-duty:get-services-list config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" />
+ <!-- END_INCLUDE(pager-duty:get-services-list) -->
+  <!-- BEGIN_INCLUDE(pager-duty:get-user-details) -->
+  <pager-duty:get-user-details config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" id="PHL7VU8"/>
+ <!-- END_INCLUDE(pager-duty:get-user-details) -->
+  <!-- BEGIN_INCLUDE(pager-duty:get-users) -->
+ <pager-duty:get-users config-ref="PagerDuty__Configuration1"   doc:name="PagerDuty" />
+ <!-- END_INCLUDE(pager-duty:get-users) -->
+  <!-- BEGIN_INCLUDE(pager-duty:post-service) -->
+  <pager-duty:post-service config-ref="PagerDuty__Configuration" doc:name="PagerDuty"/>
+  <!-- END_INCLUDE(pager-duty:post-service) -->

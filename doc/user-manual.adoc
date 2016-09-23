@@ -4,7 +4,7 @@
 
 The PagerDuty Connector facilitates connections between Anypoint Studio and PagerDuty Application.
 
-*Release Notes:* link:/release-notes/PagerDutyReleaseNotes.adoc[Link to Release Notes]
+*Release Notes:* link:/PagerDuty/doc/release-notes.adoc[Link to Release Notes]
 
 ////
 Note: existing MuleSoft documentation should be copied from right-hand column of link:https://github.com/mulesoft/mulesoft-docs/blob/master/links.csv. Links should always follow "link:"
@@ -27,21 +27,21 @@ PagerDuty Connector Operations +
 1. Get Alerts +
 List existing alerts for a given time range, optionally filtered by type (SMS, Email, Phone, or Push) . +
 2. Get Incidents +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation can be used to query current and historical PagerDuty incidents over a date range, letting you build custom dashboards or incident reports. The API allows for searching for incidents with multiple filters or query parameters, various sorts, and also supports the pagination of results. +
 3. Get Incidents by Id +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to dShow detailed information about an incident. Accepts either an incident id, or an incident number. +
 4. Get ServicesList +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to List existing services. +
 5. Get Service Details +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to Get details about an existing service. +
 6. Post Service +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to Create a new service. +
 7. Get Users +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to List users of your PagerDuty account, optionally filtered by a search query. +
 8. Get UserDetails +
-This operation is used to delete a application, by application ID. Specify the application ID in the applicationId input parameter used for CiscoSpark Connector at Mule Studio. +
+This operation is used to get the details of a specific user. +
 9.Get LogEntries  +
-This operation is used to Get the log entries. +
+This operation is used to List all incident log entries across the entire account. +
 
 
 === Prerequisites
@@ -61,7 +61,7 @@ This document describes implementation examples within the context of Anypoint S
 
 
 === Compatibility Matrix
-The Cisco Spark Connector is compatible with:
+The Pagerduty Connector is compatible with:
 
 Application/Service	     Version
 Mule Run-time	3.7.0 or later
@@ -97,7 +97,7 @@ image::configuration.jpg[]
 |Authorization       	|Authorization Token for connecting and loggin into PagerDuty
 
 
-|URL		|https://api.ciscospark.com/v1
+|URL		|https://<domain_name>.pagerduty.com/api/v1
 |===
 
 
@@ -133,7 +133,7 @@ Define Attributes: Select this option to define the values manually.
 ---
 
 == Example Use Case
-In this example flow, We are creating New Spark room where User can send messages, add additions users, etc.
+In this example flow, We are getting alerts etc.
 ===  Anypoint Studio Visual Editor | XML Editor
 
 Explain how to create this case with  Anypoint Studio  visual editor and XML editor +
@@ -142,14 +142,14 @@ Explain how to create this case with  Anypoint Studio  visual editor and XML edi
 [tab,title="Studio Visual Editor"]
 ....
 [tab content goes here]
-Create a new project by clicking New > Mule Project >Project Name: sparkroomcreateapplication.
-1. Drag an HTTP connector into sparkroomcreateapplication flow. Open the connector’s properties editor.
+Create a new project by clicking New > Mule Project >Project Name: pagerdutygetalertsapplication.
+1. Drag an HTTP connector into pagerdutygetalertsapplication flow. Open the connector’s properties editor.
 2. Click on the + icon shown in the image below.
 image::httpProperties.jpg[]
 3. The Global Element Properties window of HTTP Listener Configuration opens. Enter 8081 for Port as shown below and click on 'Ok'.
 image::httpGlobalProperties.jpg[]
 4. The new flow is now reachable through the path http://localhost:8081 from the local system.
-5. Drag PagerDuty connector into sparkroomcreateapplication flow.
+5. Drag PagerDuty connector into pagerdutygetalertsapplication flow.
 6. Configure the pagerduty connector according to the table below.
 
 |===
@@ -158,8 +158,9 @@ image::httpGlobalProperties.jpg[]
 |Connector Configuration	|select the global configuration created earlier.
 |Operation	|Create Rooms
  |General	|Select Define Attributes:
-|			|Title|MuleTestroom
-|			|Members| None
+|			|Title|Get Alerts
+|			|Since Date| 15/03/2016
+|			|Until Date| 16/05/2016
 |===
 
 7. Drag a Object to Json transformer to the flow.
@@ -169,7 +170,7 @@ image::httpGlobalProperties.jpg[]
 [tab,title="XML Editor"]
 ....
 1. Add a pagerduty:config global element to your project, then configure its attributes according to the table below (see code below for a complete sample).+
- <pagerduty:config name="PagerDuty__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="pagerduty: Configuration"/>
+ <pagerduty:config name="PagerDuty__Configuration" authorization="Token token=wdnNZa9PseXaWRu2Q8F7" doc:name="pagerduty: Configuration"/>
 
 |===
 |Attribute|Value
@@ -189,14 +190,13 @@ image::httpGlobalProperties.jpg[]
 |===
 
 4. Add a PagerDutyConnector to your muleflow after the http endpoint according to the table below
-		<PagerDuty:create-rooms config-ref="PagerDuty__Configuration" doc:name="PagerDuty">
-            <CiscoSpark:rooms-post-request title="MuleTestRoom"/>
-        </CiscoSpark:create-rooms>
+		<pager-duty:get-alerts config-ref="PagerDuty__Configuration" sinceDate="15/03/2016" untilDate="16/05/2016" doc:name="PagerDuty"/>
 |===
 |Attribute|Value
 |config-ref|PagerDuty__Configuration
-|operation|create-rooms
-|title|MuleTestRoom
+|operation|get-alerts
+|Since Date|15/03/2016
+|Until Date|16/05/2016
 |===
 
 5. Add a Object to Json transformer to your muleflow after the PagerDutyConnector
@@ -205,27 +205,27 @@ image::httpGlobalProperties.jpg[]
 
 
 === Code Example
-
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:CiscoSpark="http://www.mulesoft.org/schema/mule/CiscoSpark" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+<mule xmlns:pager-duty="http://www.mulesoft.org/schema/mule/pager-duty" xmlns:papers-trail="http://www.mulesoft.org/schema/mule/papers-trail" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:mailchimp="http://www.mulesoft.org/schema/mule/mailchimp" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:spring="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
-http://www.mulesoft.org/schema/mule/CiscoSpark http://www.mulesoft.org/schema/mule/CiscoSpark/current/mule-CiscoSpark.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/pager-duty http://www.mulesoft.org/schema/mule/pager-duty/current/mule-pager-duty.xsd">    
     <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
-    <CiscoSpark:config name="CiscoSpark__Configuration" authorization="Bearer ODY5MDBiYjctNDY4NS00ODI0LThhZjktNTUxMTcyNGI3OWMyZjRiNWRhM2MtZmZk" doc:name="CiscoSpark: Configuration"/>
-    <flow name="sparkcreateroomFlow">
+    <pager-duty:config name="PagerDuty__Configuration" authorization="Token token=wdnNZa9PseXaWRu2Q8F7" doc:name="PagerDuty: Configuration"/>
+    <flow name="pagerdutygetalertsapplication">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
-        <CiscoSpark:create-rooms config-ref="CiscoSpark__Configuration" doc:name="CiscoSpark">
-            <CiscoSpark:rooms-post-request title="MuleTestRoom"/>
-        </CiscoSpark:create-rooms>
-        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <response>
+            <json:object-to-json-transformer doc:name="Object to JSON"/>
+        </response>
+        <pager-duty:get-alerts config-ref="PagerDuty__Configuration" sinceDate="15/03/2016" untilDate="16/05/2016" doc:name="PagerDuty"/>
     </flow>
 </mule>
+
 
 
 ---
